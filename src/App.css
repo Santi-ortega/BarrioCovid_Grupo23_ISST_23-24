@@ -18,19 +18,9 @@ header {
   color: rgb(10, 9, 9);
   padding: 40px;
   text-align: center;
-  font-size: 4rem;
+  font-size: 5rem;
 }
-.buttonContainer{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px
-}
-.buttonContainer button {
-  margin: 0 30px; /* Añade un margen entre los botones */
-  font-size: 20px; /* Ajusta el tamaño de la fuente para hacer los botones más grandes */
-  padding: 10px 20px;
-  border: 2px solid #000;
-}
+
 .logo {
     position: absolute;
     top: 10px; /* Ajusta la distancia desde la parte superior */
@@ -38,10 +28,6 @@ header {
     width: 150px;
   }
   
-h1{
-  font-size: 2rem;
-  margin-bottom: 40px
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

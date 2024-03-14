@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Portada from './portada';
+import Registro_Comprador from "./registro_comprador";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Portada />} />
+            <Route path="/registro_comprador" element={<Registro_Comprador />} />
           </Routes>
         </BrowserRouter>
       
