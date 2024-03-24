@@ -1,19 +1,22 @@
-<header>
-  <div class="nav-button">
-    <a href="http://www.yourwebsite.com/">Volver</a>
-  </div>
-  <h1>INICIO DE SESIÓN</h1>
-  <div class="logo">
-    <a href="http://www.yourwebsite.com/"><img src="logo.svg" alt="Logo" /></a>
-  </div>
-</header>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style_inicio.css">
+</head>
 <body>
-  <form>
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required />
-    <label for="password">Contraseña:</label>
-    <input type="password" name="password" id="password" required />
-    <button type="submit">Aceptar</button>
-  </form>
+    <header>
+        <img class="logo" src="logo.svg" alt="Company logo">
+        <span>INICIO DE SESION</span>
+        <button>Home</button>
+    </header>
+    <form>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
+</html>
