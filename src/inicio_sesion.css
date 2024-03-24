@@ -1,0 +1,29 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 0 10px;
+	background: #eee;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+#back-button {
+	background: none;
+	border: none;
+	font-size: 1.5em;
+}
+#logo {
+	height: 50px;
+}
+form {
+	width: 300px;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	border-radius: 5px;
+}
