@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
+import BackButton from './BackButton';
+
 function Registro_Vendedor() {
     return (
         <div>
@@ -27,9 +29,9 @@ function Registro_Vendedor() {
               <label>Contraseña</label>
               <input type="password"/>
             </div>
-            
             <button type="submit">Registrarse</button>
           </form>
+          <BackButton/>
         </div>
   );
 }

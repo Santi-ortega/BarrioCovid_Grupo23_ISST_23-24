@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
+import BackButton from './BackButton';
+
 function Registro_Voluntario() {
     return (
         <div>
@@ -29,6 +31,7 @@ function Registro_Voluntario() {
             </div>
             <button type="submit">Registrarse</button>
           </form>
+          <BackButton/>
         </div>
   );
 }

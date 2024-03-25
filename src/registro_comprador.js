@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
+import BackButton from './BackButton';
+
 function Registro_Comprador() {
     return (
         <div>
@@ -37,7 +39,9 @@ function Registro_Comprador() {
             </div>
             <button type="submit">Registrarse</button>
           </form>
+          <BackButton/>
         </div>
   );
 }
 export default Registro_Comprador;
+
