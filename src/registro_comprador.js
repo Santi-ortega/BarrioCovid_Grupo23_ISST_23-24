@@ -14,11 +14,15 @@ function Registro_Comprador() {
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Apellido</label>
+              <label>Apellidos</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Usuario</label>
+              <label>Teléfono</label>
+              <input type="text" />
+            </div>
+            <div className='apartado'>
+              <label>Correo</label>
               <input type="text" />
             </div>
             <div className='apartado'>
@@ -26,18 +30,20 @@ function Registro_Comprador() {
               <input type="password"/>
             </div>
             <div className='apartado'>
-              <label>Dirección</label>
+              <label>Repetir Contraseña</label>
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Teléfono</label>
+              <label>Dirección</label>
               <input type="text" />
             </div>
             <div className='apartado'>
               <label>Soy Vulnerable</label>
               <input type="checkbox"/>
             </div>
+            <div>
             <button type="submit">Registrarse</button>
+            </div>
           </form>
           <BackButton/>
         </div>

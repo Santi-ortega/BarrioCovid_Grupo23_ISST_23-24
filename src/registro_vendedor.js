@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
+import SubirFoto from './SubirFoto';
 
 function Registro_Vendedor() {
     return (
@@ -14,7 +15,7 @@ function Registro_Vendedor() {
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Apellido</label>
+              <label>Apellidos</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
@@ -22,14 +23,36 @@ function Registro_Vendedor() {
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Usuario</label>
+              <label>Correo</label>
               <input type="text" />
-            </div>
+            </div>            
             <div className='apartado'>
               <label>Contraseña</label>
+              <input type="password" />
+            </div>
+            <div className='apartado'>
+              <label>Repetir Contraseña</label>
               <input type="password"/>
             </div>
+            <div className='apartado'>
+              <label>Dirección</label>
+              <input type="text"/>
+            </div>
+            <div className='apartado'>
+              <label>Tienda</label>
+              <input type="text"/>
+            </div>
+            <div className='apartado'>
+              <label>Horario</label>
+              <input type="text"/>
+            </div>
+            <div className='apartado'>
+              <label>Imagen</label> 
+              <input type="text"/> <SubirFoto/>
+            </div>
+            <div>
             <button type="submit">Registrarse</button>
+            </div>
           </form>
           <BackButton/>
         </div>
