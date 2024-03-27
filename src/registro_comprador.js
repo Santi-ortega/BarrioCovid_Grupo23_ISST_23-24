@@ -5,34 +5,34 @@ import './registros.css';
 function Registro_Comprador() {
     return (
         <div>
-          <h2>Registro de Comprador</h2>
+          <h2 className='inicio_registro'>Registro de Comprador</h2>
           <form className='form'>
             <div className='apartado'>
-              <label>Nombre</label>
+              <label className='parametro_registro_comprador'>Nombre</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Apellido</label>
+              <label className='parametro_registro_comprador'>Apellido</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Usuario</label>
+              <label className='parametro_registro_comprador'>Usuario</label>
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Contraseña</label>
+              <label className='parametro_registro_comprador'>Contraseña</label>
               <input type="password"/>
             </div>
             <div className='apartado'>
-              <label>Dirección</label>
+              <label className='parametro_registro_comprador'>Dirección</label>
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Teléfono</label>
+              <label className='parametro_registro_comprador'>Teléfono</label>
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Soy Vulnerable</label>
+              <label className='parametro_registro_comprador'>Soy Vulnerable</label>
               <input type="checkbox"/>
             </div>
             <button type="submit">Registrarse</button>

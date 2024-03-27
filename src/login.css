@@ -1,0 +1,16 @@
+.form-group {
+    margin-bottom: 24px; /* Espacio entre las filas */
+  }
+  
+.parametro_inicio_sesion {
+    margin-right: 10px; /* Espacio entre el label y el input */
+    font-size: 1.5rem;
+  }
+  
+  input {
+    font-size: 18px; /* Tamaño de fuente más grande para los inputs */
+  }
+  button[type="submit"] {
+    width: 180px; /* Establece un ancho fijo para el botón */
+  }
+  

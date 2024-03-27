@@ -8,20 +8,21 @@ function Portada() {
         <h1 className="portada_frases">¡Bienvenido a BarrioCovid! Si quiere iniciar sesión pulse en el botón asignado a su rol:</h1>
         <br/>
         <div className="buttonContainer">
-          <button>Comprador</button>
-    
-          <button>Vendedor</button>
-          
-          <button>Voluntario</button>
+          <NavLink to="/login">
+            <button>Comprador</button>
+          </NavLink>
+          <NavLink to="/login">
+            <button>Vendedor</button>
+          </NavLink>
+          <NavLink to="/login">
+            <button>Voluntario</button>
+          </NavLink>
         </div>
-        
         <h1 className="portada_frases">Si no tiene cuenta, registrese:</h1>
-        
         <div className="buttonContainer">
         <NavLink to="/registro_comprador">
-          <button type="submit">Comprador</button>  
+          <button>Comprador</button>  
         </NavLink>
-        
         <NavLink to="/registro_vendedor">
             <button>Vendedor</button>
         </NavLink>

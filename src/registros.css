@@ -6,11 +6,11 @@
   
   .apartado {
     margin-bottom: 10px; /* Espacio entre grupos de campos */
-    font-size: 18px;
+    font-size: 20px;
   }
   
-  label {
-    flex-basis: 150px; /* Ancho del label */
+.parametro_registro_comprador{
+    flex-basis: 120px; /* Ancho del label */
     margin-right: 10px; /* Espacio entre label e input */
   }
 
@@ -18,8 +18,8 @@
     width: 150px; /* Establece un ancho fijo para el botón */
   }
 
-  h2 {
-    font-size: 34px; /* Establece el tamaño de la fuente en 24px */
+.inicio_registro {
+    font-size: 24px; /* Establece el tamaño de la fuente en 24px */
   }
   
   
