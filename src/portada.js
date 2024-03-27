@@ -24,9 +24,11 @@ function Portada() {
           <button>Comprador</button>  
         </NavLink>
         <NavLink to="/registro_vendedor">
-            <button>Vendedor</button>
+            <button type="submit">Vendedor</button>
         </NavLink>
-        <button>Voluntario</button>
+        <NavLink to="/registro_voluntario">
+            <button type="submit">Voluntario</button>
+        </NavLink>
         </div>
     </div>
   );

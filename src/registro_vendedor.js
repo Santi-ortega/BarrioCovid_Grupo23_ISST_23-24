@@ -3,22 +3,18 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
+import SubirFoto from './SubirFoto';
 
-function Registro_Comprador() {
+function Registro_Vendedor() {
     return (
         <div>
-          <h2 className='inicio_registro'>Registro de Comprador</h2>
+          <h2>Registro de Vendedor</h2>
           <form className='form'>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Nombre</label>
+              <label>Nombre</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Apellido</label>
-              <input type="text"/>
-            </div>
-            <div className='apartado'>
-              <label className='parametro_registro_comprador'>Usuario</label>
               <label>Apellidos</label>
               <input type="text"/>
             </div>
@@ -29,22 +25,30 @@ function Registro_Comprador() {
             <div className='apartado'>
               <label>Correo</label>
               <input type="text" />
+            </div>            
+            <div className='apartado'>
+              <label>Contraseña</label>
+              <input type="password" />
             </div>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Contraseña</label>
+              <label>Repetir Contraseña</label>
               <input type="password"/>
             </div>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Dirección</label>
-              <input type="text" />
+              <label>Dirección</label>
+              <input type="text"/>
             </div>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Teléfono</label>
-              <input type="text" />
+              <label>Tienda</label>
+              <input type="text"/>
             </div>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Soy Vulnerable</label>
-              <input type="checkbox"/>
+              <label>Horario</label>
+              <input type="text"/>
+            </div>
+            <div className='apartado'>
+              <label>Imagen</label> 
+              <input type="text"/> <SubirFoto/>
             </div>
             <div>
             <button type="submit">Registrarse</button>
@@ -54,5 +58,4 @@ function Registro_Comprador() {
         </div>
   );
 }
-export default Registro_Comprador;
-
+export default Registro_Vendedor;
