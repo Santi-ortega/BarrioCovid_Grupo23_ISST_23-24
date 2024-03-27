@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './login.css'
+import BackButton from './BackButton';
+
 function Login() {
     return (
       <div>
@@ -20,6 +22,7 @@ function Login() {
             <button type="submit">Aceptar</button>
           </div>
         </form>
+        <BackButton/>
       </div>
     );
   }

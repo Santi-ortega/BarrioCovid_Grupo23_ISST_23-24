@@ -10,35 +10,35 @@ function Registro_Voluntario() {
           <h2>Registro de Voluntario</h2>
           <form className='form'>
             <div className='apartado'>
-              <label>Nombre</label>
+              <label className='parametro_registro_comprador'>Nombre</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Apellidos</label>
+              <label className='parametro_registro_comprador'>Apellidos</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Teléfono</label>
+              <label className='parametro_registro_comprador'>Teléfono</label>
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Correo</label>
+              <label className='parametro_registro_comprador'>Correo</label>
               <input type="text" />
             </div>            
             <div className='apartado'>
-              <label>Contraseña</label>
+              <label className='parametro_registro_comprador'>Contraseña</label>
               <input type="password" />
             </div>
             <div className='apartado'>
-              <label>Repetir Contraseña</label>
+              <label className='parametro_registro_comprador'>Repetir Contraseña</label>
               <input type="password"/>
             </div>
             <div className='apartado'>
-              <label>Dirección</label>
+              <label className='parametro_registro_comprador'>Dirección</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Horario</label>
+              <label className='parametro_registro_comprador'>Horario</label>
               <input type="text"/>
             </div>
             <div>

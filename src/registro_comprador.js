@@ -19,15 +19,14 @@ function Registro_Comprador() {
             </div>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Usuario</label>
-              <label>Apellidos</label>
               <input type="text"/>
             </div>
             <div className='apartado'>
-              <label>Teléfono</label>
+              <label className='parametro_registro_comprador'>Teléfono</label>
               <input type="text" />
             </div>
             <div className='apartado'>
-              <label>Correo</label>
+              <label className='parametro_registro_comprador'>Correo</label>
               <input type="text" />
             </div>
             <div className='apartado'>
@@ -36,10 +35,6 @@ function Registro_Comprador() {
             </div>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Dirección</label>
-              <input type="text" />
-            </div>
-            <div className='apartado'>
-              <label className='parametro_registro_comprador'>Teléfono</label>
               <input type="text" />
             </div>
             <div className='apartado'>
