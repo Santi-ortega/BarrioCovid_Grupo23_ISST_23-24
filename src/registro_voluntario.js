@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
+import axios from 'axios';
 
 function Registro_Voluntario() {
   const [nombre, setNombre] = useState('');
@@ -12,6 +13,38 @@ function Registro_Voluntario() {
   const [contraseña, setContraseña] = useState('');
   const [direccion, setDireccion] = useState('');
   const [horario, setHorario] = useState('');
+  const navigate = useNavigate();
+
+
+  const handleRegister = async () => {
+    const userData = {
+      nombre,
+      apellido,
+      telefono,
+      correo,
+      contraseña,
+      direccion,
+      horario, 
+    };
+    const form = document.querySelector('form');
+      
+    form.addEventListener('submit', event => {
+     axios.post('/api/registro', userData)
+       .then(response => {
+          navigate("/");
+        })
+        .catch(error => {
+          console.error(error);
+        });
+   });
+    setNombre('');
+    setApellido('');
+    setTelefono('');
+    setCorreo('');
+    setContraseña('');
+    setDireccion('');
+    setHorario('');
+  }
     return (
         <div>
           <h2>Registro de Voluntario</h2>
@@ -45,7 +78,7 @@ function Registro_Voluntario() {
               <input type="text" value={horario} onChange={(e) => setHorario(e.target.value)}/>
             </div>
             <div>
-            <button type="submit">Registrarse</button>
+            <button type="submit" onClick={(e) => { e.preventDefault(); handleRegister(); }}>Registrarse</button>
             </div>
           </form>
           <BackButton/>
