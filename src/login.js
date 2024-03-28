@@ -5,6 +5,10 @@ import './login.css'
 import BackButton from './BackButton';
 
 function Login() {
+  const [error, setError] = useState(false);
+  const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contrasena: '' }); //Almacen correo y contraseña
+  const navigate = useNavigate();
+  
     return (
       <div>
         <h1>Inicio de sesión</h1>
