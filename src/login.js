@@ -8,12 +8,15 @@ function Login() {
   const [error, setError] = useState(false);
   const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contrasena: '' }); //Almacen correo y contraseña
   const navigate = useNavigate();
-  
+
+  const handleClick = (id) => {
+    navigate(`/login/Inicio_comprador`);
+  }
     return (
       <div>
         <h1>Inicio de sesión</h1>
         <br></br>
-        <form>
+        <form onSubmit={handleClick}>
           <div className="form-group">
             <label className='parametro_inicio_sesion' htmlFor="usuario">Usuario:</label>
             <input type="text" id="usuario" />

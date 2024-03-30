@@ -22,12 +22,12 @@ header {
 }
 
 .logo {
-    position: absolute;
-    top: 10px; /* Ajusta la distancia desde la parte superior */
-    right: 40px; /* Ajusta la distancia desde el lado derecho */
-    width: 150px;
-  }
-  
+  position: absolute;
+  top: 10px; /* Ajusta la distancia desde la parte superior */
+  right: 40px; /* Ajusta la distancia desde el lado derecho */
+   width: 150px;
+  } 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
