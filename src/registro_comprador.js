@@ -12,6 +12,7 @@ function Registro_Comprador() {
   const [contraseña, setContraseña] = useState('');
   const [direccion, setDireccion] = useState('');
   const [isVulnerable, setIsVulnerable] = useState(false);
+  
     return (
         <div>
           <h2 className='inicio_registro'>Registro de Comprador</h2>

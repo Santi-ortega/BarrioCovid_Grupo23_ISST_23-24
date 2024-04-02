@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Portada from './portada';
@@ -8,8 +10,24 @@ import Registro_Vendedor from "./registro_vendedor";
 import Registro_Voluntario from "./registro_voluntario";
 import Inicio_comprador from './Inicio_comprador';
 import BackButton from './BackButton';
+import Productos from './Productos';
 
-function App() {
+  function App() {
+    const [loading, setLoading] = useState(true);
+    const { idVendedor } = useParams();
+    const { idVoluntario } = useParams();
+    const { idTienda } = useParams();
+  
+    useEffect(() => {
+      async function fetchData() {
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      }
+  
+      fetchData();
+    }, [idVendedor, idVoluntario, idTienda]);
+
   return (
     <div className="App">
       <header>
@@ -26,6 +44,7 @@ function App() {
             <Route path="/registro_vendedor" element={<Registro_Vendedor />} />
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
             <Route path="/login/Inicio_comprador" element={<Inicio_comprador/>} />
+            <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
           </Routes>
         </BrowserRouter>
       

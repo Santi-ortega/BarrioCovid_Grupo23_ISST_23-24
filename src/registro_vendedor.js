@@ -15,6 +15,7 @@ function Registro_Vendedor() {
   const [tienda, setTienda] = useState('');
   const [horario, setHorario] = useState('');
   const [imagen, setImagen] = useState('');
+  
     return (
         <div>
           <h2>Registro de Vendedor</h2>
