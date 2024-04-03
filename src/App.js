@@ -11,6 +11,7 @@ import Registro_Voluntario from "./registro_voluntario";
 import Inicio_comprador from './Inicio_comprador';
 import BackButton from './BackButton';
 import Productos from './Productos';
+import Carrito from './Carrito';
 
   function App() {
     const [loading, setLoading] = useState(true);
@@ -45,6 +46,7 @@ import Productos from './Productos';
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
             <Route path="/login/Inicio_comprador" element={<Inicio_comprador/>} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
+            <Route path="/Carrito" element={<Carrito />} />
           </Routes>
         </BrowserRouter>
       
