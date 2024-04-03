@@ -32,8 +32,8 @@ function Productos() {
   const { idTienda } = useParams();
   const location = useLocation();
   const [quantities, setQuantities] = useState({});
-  //const tiendaId = new URLSearchParams(location.search).get('tienda');
-
+  const [cartItems, setCartItems] = useState([]);
+  
   useEffect(() => {
     // Filtrar los productos por el ID de la tienda
     const productosFiltrados = products.filter(producto => producto.idTienda === parseInt(idTienda));
@@ -41,7 +41,19 @@ function Productos() {
   }, [idTienda, products]);
 
   const handleAddToCart = (product) => {
-    // implementar lógica para añadir el producto al carrito del comprador
+      // Verifica si el producto ya está en el carrito
+  const existingItem = cartItems.find(item => item.id === product.id);
+  
+  if (existingItem) {
+    // Si el producto ya está en el carrito, actualiza su cantidad
+    const updatedCartItems = cartItems.map(item =>
+      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(updatedCartItems);
+  } else {
+    // Si el producto no está en el carrito, agrégalo con cantidad 1
+    setCartItems([...cartItems, { ...product, quantity: 1 }]);
+  }
   };
   const handleQuantityChange = (productId, quantity) => {
     setQuantities(prevState => ({
