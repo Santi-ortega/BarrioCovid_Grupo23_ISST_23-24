@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { producto } from './Productos.js';
+import {Link} from "react-router-dom";
 
 
 const Carrito = ({ carrito, vaciarCarrito }) => {
   const [direccionEnvio, setDireccionEnvio] = useState("");
-  const [metodoPago, setMetodoPago] = useState("");
   const [total, setTotal] = useState(0);
-
   const [quantities, setQuantities] = useState({});
   const [hour, setHour] = useState({});
 
@@ -32,16 +31,13 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
     setDireccionEnvio(e.target.value);
   };
 
-  // Actualiza el método de pago
-  const actualizarMetodoPago = (e) => {
-    setMetodoPago(e.target.value);
-  };
+  
   
   // Procesa el pago y vacía el carrito
   const procesarPago = () => {
     // Realiza el proceso de pago...
     // Vacía el carrito
-    vaciarCarrito();
+    
     // Redirige a la página de confirmación
     // (No incluido en este ejemplo)
   };
@@ -78,10 +74,7 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
         <input type="text" value={direccionEnvio} onChange={actualizarDireccion} />
       </div>
       <div>
-        <h3>Método de Pago:</h3>
-        <input type="text" value={metodoPago} onChange={actualizarMetodoPago} />
-      </div>
-      <div>
+        
         <h3>Hora Recojida:</h3>
         
         <select value={hour} onChange={(e) => setHour(parseInt(e.target.value))}>
@@ -94,7 +87,10 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
       </div>
       
       <button onClick={calcularTotal}>Calcular Total</button>
+      <Link to="/PantallaPago">
       <button onClick={procesarPago}>Pagar</button>
+      </Link>
+      
     </div>
   );
 };

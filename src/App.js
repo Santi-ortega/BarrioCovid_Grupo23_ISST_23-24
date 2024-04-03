@@ -12,6 +12,7 @@ import Inicio_comprador from './Inicio_comprador';
 import BackButton from './BackButton';
 import Productos from './Productos';
 import Carrito from './Carrito';
+import PantallaPago from './PantallaPago';
 
   function App() {
     const [loading, setLoading] = useState(true);
@@ -47,6 +48,7 @@ import Carrito from './Carrito';
             <Route path="/login/Inicio_comprador" element={<Inicio_comprador/>} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
             <Route path="/Carrito" element={<Carrito />} />
+            <Route path="/PantallaPago" element={<PantallaPago />} />
           </Routes>
         </BrowserRouter>
       
