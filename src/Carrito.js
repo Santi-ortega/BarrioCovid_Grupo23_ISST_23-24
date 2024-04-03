@@ -7,6 +7,17 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
   const [metodoPago, setMetodoPago] = useState("");
   const [total, setTotal] = useState(0);
 
+  const [quantities, setQuantities] = useState({});
+  const [hour, setHour] = useState({});
+
+
+  const handleQuantityChange = (carrito, quantity) => {
+    setQuantities(prevState => ({
+      ...prevState,
+      [carrito]: quantity
+    }));
+  };
+
   // Calcula el total del carrito
   const calcularTotal = () => {
     let total = 0;
@@ -25,7 +36,7 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
   const actualizarMetodoPago = (e) => {
     setMetodoPago(e.target.value);
   };
-
+  
   // Procesa el pago y vacía el carrito
   const procesarPago = () => {
     // Realiza el proceso de pago...
@@ -34,7 +45,7 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
     // Redirige a la página de confirmación
     // (No incluido en este ejemplo)
   };
-
+ 
   return (
     <div>
       <h2>Carrito de Compra</h2>
@@ -70,6 +81,18 @@ const Carrito = ({ carrito, vaciarCarrito }) => {
         <h3>Método de Pago:</h3>
         <input type="text" value={metodoPago} onChange={actualizarMetodoPago} />
       </div>
+      <div>
+        <h3>Hora Recojida:</h3>
+        
+        <select value={hour} onChange={(e) => setHour(parseInt(e.target.value))}>
+  {[...Array(24).keys()].map((hour) => (
+    <option key={hour + 1} value={hour + 1}>
+      {hour + 1}:00
+    </option>
+  ))}
+</select>
+      </div>
+      
       <button onClick={calcularTotal}>Calcular Total</button>
       <button onClick={procesarPago}>Pagar</button>
     </div>
