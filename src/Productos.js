@@ -4,18 +4,16 @@ import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { tienda } from './Inicio_comprador.js'
 import './Productos.css';
-
+import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function Productos() {
-  const [products, setProducts] = useState([]);
-  const { idTienda } = useParams();
-
-  const productos = [ 
+  const [products, setProducts] = useState([
   { id: 1, idTienda: 1 , nombre: 'Lomo', description: 'Lomo ibérico', foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF08GU6Mf9Kz6m5rFMG6gATiYKbTqQLO3sOP0PztQ5QQ&s", precio: '10'},
   { id: 2, idTienda: 1 , nombre: 'Chorizo', description: 'Chorizo de cantimpalo', foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgSTjY9gplXLJO4s6V8YOQemL9mv3Vl4iAu9vR_4EMg&s", precio: '5'},
   { id: 3, idTienda: 1 , nombre: 'Fuet', description: 'Fuet casa tarradellas', foto: "https://images.openfoodfacts.org/images/products/848/000/055/1085/front_en.61.400.jpg", precio: '6'},
-  { id: 4, idTienda: 1 , nombre: 'salchichon', description: 'Descripción del producto 4', foto: "https://images.openfoodfacts.org/images/products/848/000/059/1302/front_es.3.full.jpg", precio: '8'},
-  { id: 1, idTienda: 2 , nombre: 'Manzana', description: 'Manzana verde', foto: "https://delahuertacasa.com/wp-content/uploads/2022/01/manzana-verde-product.jpg", precio: '1,2'},
+  { id: 4, idTienda: 1 , nombre: 'salchichon', description: 'Descripción del producto 4', foto: "https://images.openfoodfacts.org/images/products/848/000/059/1302/front_es.3.full.jpg", precio: '8'}, { id: 1, idTienda: 2 , nombre: 'Manzana', description: 'Manzana verde', foto: "https://delahuertacasa.com/wp-content/uploads/2022/01/manzana-verde-product.jpg", precio: '1,2'},
   { id: 2, idTienda: 2 , nombre: 'Fresas', description: 'Fresones de huelva', foto: "https://dialprix.es/blog/wp-content/uploads/fresas.jpg", precio: '2'},
   { id: 3, idTienda: 2 , nombre: 'Mandarina', description: 'Mandarina española', foto: "https://mon.es/wp-content/uploads/2018/11/Mandarina.png", precio: '1'},
   { id: 4, idTienda: 2 , nombre: 'Uvas', description: 'Uvas frescas de temporada', foto: "https://phantom-elmundo.unidadeditorial.es/3ce4cca00caea1a116a24f4a20eab6e5/crop/0x55/699x520/resize/414/f/jpg/assets/multimedia/imagenes/2019/12/19/15767544243662.jpg", precio: '8'},
@@ -30,35 +28,51 @@ function Productos() {
   { id: 1, idTienda: 5 , nombre: 'Lenguado', description: 'Lenguado fresco', foto: "https://s3.ppllstatics.com/eldiariomontanes/www/multimedia/202102/20/media/cortadas/62318145-kWEH-U130585846198jfF-1248x770@Diario%20Montanes.jpg", precio: '1,2'},
   { id: 2, idTienda: 5 , nombre: 'Gambas', description: 'Gambas del norte', foto: "https://images.ecestaticos.com/PRK73ius13FYLG6IcBpITLB0QkA=/0x108:2118x1301/1200x1200/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F267%2Fadb%2Fc3e%2F267adbc3ea491937a2c306806988b9b9.jpg", precio: '2'},
   { id: 3, idTienda: 5 , nombre: 'Salmón', description: 'Salmon nacional', foto: "https://opercebeiro.com/wp-content/uploads/nc/catalog/rodaja-salmon-opercebeiro-800x800.png", precio: '1'},
-  { id: 4, idTienda: 5 , nombre: 'Lubina', description: 'Lubina deluxe', foto: "https://mariscodeislacristina.com/wp-content/uploads/2021/12/lubina-salvaje-1.jpg", precio: '8'},
-
-];
+  { id: 4, idTienda: 5 , nombre: 'Lubina', description: 'Lubina deluxe', foto: "https://mariscodeislacristina.com/wp-content/uploads/2021/12/lubina-salvaje-1.jpg", precio: '8'},]);
+  const { idTienda } = useParams();
   const location = useLocation();
+  const [quantities, setQuantities] = useState({});
   //const tiendaId = new URLSearchParams(location.search).get('tienda');
 
   useEffect(() => {
     // Filtrar los productos por el ID de la tienda
-    const productosFiltrados = productos.filter(producto => producto.idTienda === parseInt(idTienda));
+    const productosFiltrados = products.filter(producto => producto.idTienda === parseInt(idTienda));
     setProducts(productosFiltrados);
   }, [idTienda, products]);
 
   const handleAddToCart = (product) => {
     // implementar lógica para añadir el producto al carrito del comprador
   };
-
+  const handleQuantityChange = (productId, quantity) => {
+    setQuantities(prevState => ({
+      ...prevState,
+      [productId]: quantity
+    }));
+  };
   return (
     <div>
       <h1>{tienda.find(tienda => tienda.id === parseInt(idTienda))?.nombre}</h1>
       <h2>Productos:</h2>
+      <Link to="/carrito">
+        <button className='botonCarrito'> <FontAwesomeIcon icon={faShoppingCart}/>
+        </button>
+      </Link>
+      <ul className='producto'>
       {products.map((producto) => (
-        <div key={producto.id} className='store' >
+        <li key={producto.id} className='producto' >
           <h3>{producto.nombre}</h3>
           <img src={producto.foto} alt={producto.nombre} />
           <p>{producto.description}</p>
           <p>Precio: {producto.precio}€</p>
+          <select value={quantities[producto.id] || 0} onChange={(e) => handleQuantityChange(producto.id, parseInt(e.target.value))}>
+            {[...Array(10).keys()].map((num) => (
+              <option key={num} value={num}>{num}</option>
+            ))}
+          </select>
           <button onClick={() => handleAddToCart(producto)}>Añadir al Carrito</button>
-        </div>
+        </li>
       ))}
+      </ul>
     </div>
   );
 };

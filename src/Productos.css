@@ -1,28 +1,28 @@
 h2 {
     font-size: 2rem;
   }
-
-  ul {
-    margin: 2rem 0;
+.producto ul {
+    margin: 2px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
-
-  li {
+.producto li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
+    width: 300px;
     background-color: #cbcbcb;
     border-radius: 5px;
-    margin: 20px auto;
-    max-width: 500px;
+    margin: 10px auto;
+    max-width: 400px;
     text-align: center;
     padding: 5px;
   }  
-  
-  .store button {
+  .producto select{
+    padding: 5px 10px;
+  }
+  .producto button {
     background-color: #6a6446;
     color: white;
     border:none;
@@ -34,22 +34,33 @@ h2 {
     cursor: pointer;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+  .botonCarrito{
+    position: absolute;
+    top: 200px; /* Ajusta la distancia desde la parte superior */
+    right: 80px; /* Ajusta la distancia desde la derecha */
+    padding: 20px 40px; /* Ajusta el espacio interno del botón */
+    font-size: 12px; /* Ajusta el tamaño del texto */
+    
+  }
+  .botonCarrito img{
+    padding: 5px;
+  }
 
   button:hover {
     background-color: #666;
   }
 
-  .store img {
+  .producto img {
     max-width: 150px;
     max-height: 150px;
     margin-bottom: 20px;
     }
     
-    .store h2 {
+    .producto h2 {
     font-size: 24px;
     margin-bottom: 10px;
     }
-    .store p {
+    .producto p {
     font-size: 18px;
     line-height: 1.5;
     margin-bottom: 20px;

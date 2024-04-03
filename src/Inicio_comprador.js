@@ -20,9 +20,9 @@ function Inicio_comprador() {
   return (
     <div>
       <h2 className="selecciona-tienda">Seleccione su tienda:</h2>
-      <ul>
+      <ul className='store'>
         {tiendas.map((tienda) => (
-          <li key={tienda.id} className='store'>
+          <li key={tienda.id}>
             <h2>{tienda.nombre}</h2>
             <img src={tienda.foto} alt={tienda.nombre} />
             <p>Dirección: {tienda.direccion}</p>
