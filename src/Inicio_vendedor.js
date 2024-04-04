@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 function Inicio_vendedor() {
     const [pedido, setPedidos] = useState([
-        { id: 1, nombre: 'pedido 1'},
-        { id: 2, nombre: 'pedido 2'},
-        { id: 3, nombre: 'pedido 3'},
-        { id: 4, nombre: 'pedido 4'},
-        { id: 5, nombre: 'pedido 5'},
+        { id: 1, nombre: 'tienes un nuevo pedido'},
+        { id: 2, nombre: 'tienes un nuevo pedido'},
+        { id: 3, nombre: 'tienes un nuevo pedido'},
+        { id: 4, nombre: 'tienes un nuevo pedido'},
+        { id: 5, nombre: 'tienes un nuevo pedido'},
       ]);
 
 
@@ -20,10 +20,10 @@ function Inicio_vendedor() {
          {pedido.map((pedido) => (
           <li key={pedido.id}>
             <h2>{pedido.nombre}</h2>
+            <button onClick={handleInformacionPedido}>Información Pedido</button>
             </li>
         ))}
-      <h3>Pedido Nuevo</h3>
-      <button onClick={handleInformacionPedido}>Información Pedido</button>
+      
     </div>
   );
 }
