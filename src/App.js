@@ -13,13 +13,13 @@ import BackButton from './BackButton';
 import Productos from './Productos';
 import Carrito from './Carrito';
 import PantallaPago from './PantallaPago';
-
+import { CartProvider } from './CartContext';
   function App() {
     const [loading, setLoading] = useState(true);
     const { idVendedor } = useParams();
     const { idVoluntario } = useParams();
     const { idTienda } = useParams();
-  
+    const [cartItems, setCartItems] = useState([]);
     useEffect(() => {
       async function fetchData() {
         setTimeout(() => {
@@ -39,6 +39,7 @@ import PantallaPago from './PantallaPago';
       </header>
       <br/>
         <BrowserRouter>
+        <CartProvider>
           <Routes>
             <Route path="/" element={<Portada />} />
             <Route path="/registro_comprador" element={<Registro_Comprador />} />
@@ -47,9 +48,10 @@ import PantallaPago from './PantallaPago';
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
             <Route path="/login/Inicio_comprador" element={<Inicio_comprador/>} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
-            <Route path="/Carrito" element={<Carrito />} />
+            <Route path="/carrito" element={<Carrito cartItems={cartItems} />} />
             <Route path="/PantallaPago" element={<PantallaPago />} />
           </Routes>
+          </CartProvider>
         </BrowserRouter>
       
     </div>

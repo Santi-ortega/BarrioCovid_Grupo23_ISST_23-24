@@ -1,0 +1,39 @@
+/* Estilos para el contenedor del carrito */
+.carrito-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para los elementos de la lista del carrito */
+  .carrito-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  /* Estilos para el botón de eliminar */
+  .btn-eliminar {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ff6961;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el total */
+  .total {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .carrito-list {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+  }
