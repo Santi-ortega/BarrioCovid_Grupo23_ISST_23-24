@@ -6,6 +6,8 @@ function PantallaPago() {
   const [nombre, setNombre] = useState('');
   const [numeroTarjeta, setNumeroTarjeta] = useState('');
   const [cvv, setCvv] = useState('');
+  const [hour, setHour] = useState({});
+
 
   const handleNombreChange = (e) => {
     setNombre(e.target.value);
@@ -40,6 +42,16 @@ function PantallaPago() {
           <label htmlFor="cvv">CVV:</label>
           <input type="text" id="cvv" value={cvv} onChange={handleCvvChange} />
         </div>
+        <div>
+          <label>Hora Recogida:</label>
+        <select value={hour} onChange={(e) => setHour(parseInt(e.target.value))}>
+  {[...Array(24).keys()].map((hour) => (
+    <option key={hour + 1} value={hour + 1}>
+      {hour + 1}:00
+    </option>
+  ))}
+</select>
+</div>
         <button type="submit">Pagar</button>
       </form>
     </div>

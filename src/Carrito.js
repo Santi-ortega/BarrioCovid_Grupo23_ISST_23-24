@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from './CartContext';
 import './carrito.css'
+import {Link} from "react-router-dom";
 
 const Carrito = () => {
   const { cartItems, updateQuantity, removeFromCart } = useCart();
@@ -51,6 +52,9 @@ const Carrito = () => {
       <div className="total"> {/* Estilo para el total */}
       <h3>Total: {getTotalPrice()}€</h3>
       </div>
+      <Link to="/PantallaPago">
+        <button className='aceptar'>ACEPTAR</button>
+      </Link>
     </div>
   );
 };
