@@ -8,10 +8,10 @@ function Portada() {
         <h1 className="portada_frases">¡Bienvenido a BarrioCovid! Si quiere iniciar sesión pulse en el botón asignado a su rol:</h1>
         <br/>
         <div className="buttonContainer">
-          <NavLink to="/login">
+          <NavLink to="/login_comprador">
             <button>Comprador</button>
           </NavLink>
-          <NavLink to="/login">
+          <NavLink to="/login_vendedor">
             <button>Vendedor</button>
           </NavLink>
           <NavLink to="/login">

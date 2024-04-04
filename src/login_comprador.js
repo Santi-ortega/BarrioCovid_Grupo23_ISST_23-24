@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 import './login.css'
 import BackButton from './BackButton';
 
-function Login() {
+function Login_comprador() {
   const [error, setError] = useState(false);
   const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contrasena: '' }); //Almacen correo y contraseña
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate(`/login/Inicio_comprador`);
+    navigate(`/login_comprador/Inicio_comprador`);
   }
     return (
       <div>
@@ -35,4 +35,4 @@ function Login() {
   }
   
 
-export default Login;
+export default Login_comprador;
