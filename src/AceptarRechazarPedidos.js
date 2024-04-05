@@ -7,8 +7,21 @@ import { tiendasData } from './Inicio_comprador.js';
 
 function AceptarRechazarPedidos () {
 const [productos, setProductos] = useState([
-        { id: 1, idTienda: 1, nombre: "Television", idPedido: 1, precio: '500'},
-        { id: 2, idTienda: 1, nombre: "Coche", idPedido: 1, precio: '280000'},
+        { id: 1, idTienda: 1, nombre: "Lomo", idPedido: 1, precio: '10'},
+        { id: 2, idTienda: 1, nombre: "chorizo", idPedido: 1, precio: '5'},
+        {id: 3, idTienda: 1, nombre: "Fuet", idPedido: 1, precio: '5'},
+        {id: 1, idTienda: 2, nombre: "Manzana", idPedido: 2, precio: '1.2'},
+        {id: 2, idTienda: 2, nombre: "Fresas", idPedido: 2, precio: '2'},
+        {id: 3, idTienda: 2, nombre: "Mandarina", idPedido: 2, precio: '1'},
+        {id: 1, idTienda: 3, nombre: "Whisky dyc 8", idPedido: 3, precio: '1,2'},
+        {id: 2, idTienda: 3, nombre: "Pan bimbo", idPedido: 3, precio: '2'},
+        {id: 3, idTienda: 3, nombre: "Natillas", idPedido: 3, precio: '8'},
+        {id: 1, idTienda: 4, nombre: "cerveza", idPedido: 4, precio: '2'},
+        {id: 2, idTienda: 4, nombre: "Cocacola", idPedido: 4, precio: '2'},
+        {id: 3, idTienda: 4, nombre: "Te rojo", idPedido: 4, precio: '1,2'},
+        {id: 1, idTienda: 5, nombre: "Gambas", idPedido: 5, precio: '2'},
+        {id: 2, idTienda: 5, nombre: "Salmon", idPedido: 5, precio: '1'},
+        {id: 3, idTienda: 5, nombre: "Lubina", idPedido: 5, precio: '8'},
 ]);     
 
 const {idPedido} = useParams();
