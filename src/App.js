@@ -17,6 +17,8 @@ import PantallaPago from './PantallaPago';
 import { CartProvider } from './CartContext';
 import Login_vendedor from './login_vendedor';
 import AceptarRechazarPedidos from "./AceptarRechazarPedidos"
+import GestionTienda from "./GestionTienda"
+import AñadirProducto from "./AñadirProducto"
 
   function App() {
     const [loading, setLoading] = useState(true);
@@ -24,6 +26,7 @@ import AceptarRechazarPedidos from "./AceptarRechazarPedidos"
     const { idVoluntario } = useParams();
     const { idTienda } = useParams();
     const [cartItems, setCartItems] = useState([]);
+    
     useEffect(() => {
       async function fetchData() {
         setTimeout(() => {
@@ -57,6 +60,8 @@ import AceptarRechazarPedidos from "./AceptarRechazarPedidos"
             <Route path="/AceptarRechazarPedidos/pedido/:idPedido" element={<AceptarRechazarPedidos />} />
             <Route path="/carrito" element={<Carrito cartItems={cartItems} />} />
             <Route path="/PantallaPago" element={<PantallaPago />} />
+            <Route path="/GestionTienda" element={<GestionTienda />} />
+            <Route path="/AñadirProducto" element={<AñadirProducto />} />
           </Routes>
           </CartProvider>
         </BrowserRouter>

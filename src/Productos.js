@@ -36,6 +36,7 @@ function Productos() {
   const [quantities, setQuantities] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const { addToCart } = useCart();
+  
   useEffect(() => {
     // Filtrar los productos por el ID de la tienda
     const productosFiltrados = products.filter(producto => producto.idTienda === parseInt(idTienda));

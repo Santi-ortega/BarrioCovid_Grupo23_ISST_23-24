@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom";
 import './Inicio_vendedor.css'
 
 //Esta es la primera pantalla que ve el vendedor para ver si tiene pedidos pendientes
@@ -33,6 +34,11 @@ function Inicio_vendedor() {
           <button onClick={() => handleClick(pedido.id)}>Información Pedido</button> {/*Botón para ver la info del pedido*/}
           </li>
         ))}
+      </div>
+      <div className="store">
+      <Link to= '/GestionTienda'>
+      <button className ="gestión" >Gestionar Tienda</button>
+      </Link>
       </div>
     </div>
   );
