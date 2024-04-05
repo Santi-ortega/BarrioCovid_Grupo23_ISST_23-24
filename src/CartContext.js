@@ -1,19 +1,22 @@
-
 import React, { createContext, useContext, useState } from 'react';
+
+//En este archivo creamos un contexto (el carrito) para que todas las pantallas tengan acceso a él
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
+  //Función para añadir al carrito productos si no han sido añadidos antes
   const addToCart = (product) => {
-    const existingIndex = cartItems.findIndex(item => item.id === product.id);
-    if (existingIndex === -1) {
+    const existe = cartItems.findIndex(item => item.id === product.id);
+    if (existe === -1) {
       // El producto no está en el carrito, lo agregamos
       setCartItems(prevCartItems => [...prevCartItems, product]);
     }
   };
 
+  //Función para actualiar la cantidad de cada producto que se añade al carrito de compra
   const updateQuantity = (productId, quantity) => {
     setCartItems((prevCartItems) =>
       prevCartItems.map((item) =>
@@ -22,12 +25,14 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  //Función que utilizamos para eliminar un producto del carrito
   const removeFromCart = (productId) => {
     setCartItems((prevCartItems) =>
       prevCartItems.filter((item) => item.id !== productId)
     );
   };
 
+  //Función utilizada para borrar todos los productos del carrito
   const clearCart = () => {
     setCartItems([]);
   };
@@ -40,4 +45,5 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
 export const useCart = () => useContext(CartContext);
