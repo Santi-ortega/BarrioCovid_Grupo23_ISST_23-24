@@ -19,9 +19,9 @@ function Inicio_vendedor() {
   return (
     <div className="inicio-vendedor-container">
        <h1>Tus Pedidos</h1>
-      <div className="store">
+      <div className="pedido">
          {pedidos.map((pedido) => (
-          <li key={pedido.id} className="store">
+          <li key={pedido.id} className="pedido">
             <h3>Tienes un nuevo pedido!</h3>
           <button onClick={() => handleClick(pedido.id)}>Información Pedido</button>
           </li>
