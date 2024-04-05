@@ -3,12 +3,21 @@
   }
   
 .parametro_inicio_sesion {
-    margin-right: 10px; /* Espacio entre el label y el input */
-    font-size: 1.5rem;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    background-color: #f2ece8;
+    border-radius: 5px;
+    margin: 10px auto;
+    max-width: 400px;
+    text-align: center;
+    padding: 5px;
+  }  
+  
 
-
-input {
+  input {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,5 +43,4 @@ input {
     cursor: pointer;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
   
