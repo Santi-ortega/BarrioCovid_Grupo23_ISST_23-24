@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom";
 import './Inicio_vendedor.css'
 
 function Inicio_vendedor() {
@@ -26,6 +27,11 @@ function Inicio_vendedor() {
           <button onClick={() => handleClick(pedido.id)}>Información Pedido</button>
           </li>
         ))}
+      </div>
+      <div className="store">
+      <Link to= '/GestionTienda'>
+      <button className ="gestión" >Gestionar Tienda</button>
+      </Link>
       </div>
     </div>
   );

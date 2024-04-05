@@ -16,7 +16,6 @@ const [idVendedor, setIdVendedor]= useState()
 const [nombre, setNombre] = useState('');
 const [precio, setPrecio] = useState('');
 const [nombreProducto, setNombreProducto] = useState('');
-const [buttonsRendered, setButtonsRendered] = useState(false);
 
 useEffect(() => {
     // Filtrar los productos por el ID del pedido
