@@ -3,6 +3,8 @@ import { useCart } from './CartContext';
 import './carrito.css'
 import {Link} from "react-router-dom";
 
+//Pantalla carrito de la compra
+
 const Carrito = () => {
 
   //Variables para tener el estado de los item del carrito y de la cantidad de cada item
