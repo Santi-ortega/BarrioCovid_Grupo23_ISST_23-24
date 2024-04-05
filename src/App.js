@@ -16,6 +16,7 @@ import Carrito from './Carrito';
 import PantallaPago from './PantallaPago';
 import { CartProvider } from './CartContext';
 import Login_vendedor from './login_vendedor';
+import AceptarRechazarPedidos from "./AceptarRechazarPedidos"
 
   function App() {
     const [loading, setLoading] = useState(true);
@@ -53,6 +54,7 @@ import Login_vendedor from './login_vendedor';
             <Route path="/login_comprador/Inicio_comprador" element={<Inicio_comprador/>} />
             <Route path="/login_vendedor/Inicio_vendedor" element={<Inicio_vendedor/>} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
+            <Route path="/AceptarRechazarPedidos/pedido/:idPedido" element={<AceptarRechazarPedidos />} />
             <Route path="/carrito" element={<Carrito cartItems={cartItems} />} />
             <Route path="/PantallaPago" element={<PantallaPago />} />
           </Routes>

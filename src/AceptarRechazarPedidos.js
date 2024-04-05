@@ -1,55 +1,74 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Inicio_comprador.css'
-import {pedidos} from "Inicio_vendedor.js"
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import './Inicio_vendedor.css'
+import axios from 'axios';
+import { pedido } from "./Inicio_vendedor.js"
+import { tienda } from './Inicio_comprador.js';
 
-function AceptarRechazarPedidos () {}
-    const [pedidos, setPedidos] = useState([]);
+function AceptarRechazarPedidos () {
+const [productos, setProductos] = useState([
+        { id: 1, idTienda: 1, nombre: "Television", idPedido: 1, precio: '500'},
+        { id: 2, idTienda: 1, nombre: "Coche", idPedido: 1, precio: '280000'},
+]);     
 
+const {idPedido} = useParams();
+const [idVendedor, setIdVendedor]= useState()
+const [nombre, setNombre] = useState('');
+const [precio, setPrecio] = useState('');
+const [nombreProducto, setNombreProducto] = useState('');
+const [buttonsRendered, setButtonsRendered] = useState(false);
 
-function aceptarPedido(idPedido) {
-    // Realizar la petición HTTP para aceptar el pedido
-    axios.put(`/BarrioCovid/pendientes/${idPedido}`, { estado: 'aceptado' })
-      .then(response => {
-        // Actualizar la lista de pedidos pendientes
-        setPedidos(pedidos.filter(pedido => pedido.id !== idPedido));
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+useEffect(() => {
+    // Filtrar los productos por el ID del pedido
+    const productosFiltrados = productos.filter(producto => producto.idPedido === parseInt(idPedido));
+    setProductos(productosFiltrados);
+  }, [idPedido, productos])
 
-  // Función para rechazar un pedido
-  function rechazarPedido(idPedido) {
-    axios.put(`/BarrioCovid/pendientes/${idPedido}`, { estado: 'rechazado' })
-    .then(response => {
-      // Actualizar la lista de pedidos pendientes
-      setPedidos(pedidos.filter(pedido => pedido.id !== idPedido));
-    })
-    .catch(error => {
-      console.log(error);
-    });  
-}
+  const navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate(`/login_vendedor/Inicio_vendedor`);
+  };
 
-return (
+  return (
     <div>
-      <h1>Pedido</h1>
-  
-      <div className="container" style={{ display: "flex", flexDirection: "row" }}>
-        <div className="column" style={{ flexBasis: "50%" }}>
-          <h2>Pedidos pendientes:</h2>
-          <ul>
-            {pedidos.map((pedido) => (
-              <li key={pedido.id}>
-                <p>Comprador: {pedido.comprador}</p>
-                <p>Productos:</p>
-                <ul>
-                  {pedido.productos.map((producto) => (
-                    <li key={producto}>{producto}</li>
-                  ))}
-                </ul>
-                <div>
+      <h1>Información del pedido</h1>
+      {productos.map((producto, index) => {
+        // Filtrar los pedidos que corresponden al producto actual
+        const pedidosProducto = pedido.filter((p) => p.id === producto.idPedido);
+        // Obtener la primera fecha de realización y recogida del grupo de pedidos
+        const fechaRealizada =
+          pedidosProducto.length > 0 ? pedidosProducto[0].fecha_realizada : "";
+        const fechaRecogida =
+          pedidosProducto.length > 0 ? pedidosProducto[0].fecha_recogida : "";
 
-
-
-export default AceptarRechazarPedidos;
+        return (
+            <div className= "store">
+          <div key={producto.id} className="store ">
+            <h3>{producto.nombre}</h3>
+            <h4>{producto.precio}€</h4>
+            {index === productos.length-1 && (
+            <ul>
+              <li>
+                <p>{fechaRealizada}</p>
+                <p>{fechaRecogida}</p>
+              </li>
+            </ul>
+            )}
+           {index === productos.length - 1 && (
+              <>
+                <button onClick={() => handleClick(pedidosProducto[0].id)}>
+                  Aceptar
+                </button>
+                <button onClick={() => handleClick(pedidosProducto[0].id)}>
+                  Rechazar
+                </button>
+              </>
+            )}
+          </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+  export default AceptarRechazarPedidos;

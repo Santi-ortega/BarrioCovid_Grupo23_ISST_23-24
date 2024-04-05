@@ -1,0 +1,20 @@
+.store li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 7000px;
+    background-color: #f2ece8;
+    border-radius: 5px;
+    margin: 10px auto;
+    max-width: 700px;
+    text-align: center;
+    padding: 5px;
+    flex-grow: 1;
+ /* Alinea los elementos de manera que haya espacio entre ellos */
+    align-items: center; /* Centra verticalmente los elementos */
+} /* Esto permite que los elementos se envuelvan a la siguiente línea si no hay suficiente espacio */
+
+  .inicio-vendedor-container{
+    align-items: center;
+  }
