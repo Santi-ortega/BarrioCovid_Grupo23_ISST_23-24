@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './Productos.css';
-import { tienda } from './Inicio_comprador.js';
+import { tiendasData } from './Inicio_comprador.js';
 import {Link} from "react-router-dom";
 import AñadirProducto from './AñadirProducto';
 
@@ -57,7 +57,7 @@ const handleDeleteProduct = (id) => {
 
   return (
     <div>
-      <h1>{tienda.find(t => t.id === parseInt(idTienda))?.nombre}</h1>
+      <h1>{tiendasData.find(t => t.id === parseInt(idTienda))?.nombre}</h1>
       <h2>Productos:</h2>
       <ul className='producto'>
         {products.map((producto) => (

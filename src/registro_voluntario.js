@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
 import axios from 'axios';
+import './Inicio_comprador.css'
 
 function Registro_Voluntario() {
   const [nombre, setNombre] = useState('');

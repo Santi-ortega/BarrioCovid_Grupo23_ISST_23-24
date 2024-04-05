@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
+import './Inicio_comprador.css'
 
 function Registro_Comprador() {
   const [nombre, setNombre] = useState('');
@@ -15,10 +16,10 @@ function Registro_Comprador() {
   
     return (
         <div>
-          <h2 className='inicio_registro'>Registro de Comprador</h2>
+          <h2 className='registro_comprador'>Registro de Comprador</h2>
           <form className='form'>
             <div className='apartado'>
-              <label className='parametro_registro_comprador'>Nombre</label>
+              <li className='parametro_registro_comprador'>Nombre</li>
               <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
             </div>
             <div className='apartado'>
@@ -41,7 +42,7 @@ function Registro_Comprador() {
               <label className='parametro_registro_comprador'>Dirección</label>
               <input type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)}/>
             </div>
-            <div className='apartado'>
+            <div className='store'>
               <label className='parametro_registro_comprador'>Soy Vulnerable</label>
               <input type="checkbox" value={isVulnerable} onChange={(e) => setIsVulnerable(!isVulnerable)}/>
             </div>

@@ -4,18 +4,47 @@
     align-items: center;
   }
   
-  .apartado {
-    margin-bottom: 10px; /* Espacio entre grupos de campos */
-    font-size: 20px;
-  }
+  .apartado line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    background-color: #f2ece8;
+    border-radius: 5px;
+    margin: 10px auto;
+    max-width: 400px;
+    text-align: center;
+    padding: 5px;
+  }  
+  
   
 .parametro_registro_comprador{
-    flex-basis: 120px; /* Ancho del label */
-    margin-right: 10px; /* Espacio entre label e input */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  background-color: #f2ece8;
+  border-radius: 5px;
+  margin: 10px auto;
+  max-width: 400px;
+  text-align: center;
+  padding: 5px;
+}  
+
 
   button[type="submit"] {
-    width: 150px; /* Establece un ancho fijo para el botón */
+    background-color: #6a6446;
+    color: white;
+    border:none;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
 .inicio_registro {

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './Inicio_vendedor.css'
 import axios from 'axios';
-import { pedido } from "./Inicio_vendedor.js"
-import { tienda } from './Inicio_comprador.js';
+import { pedidosData } from "./Inicio_vendedor.js"
+import { tiendasData } from './Inicio_comprador.js';
 
 function AceptarRechazarPedidos () {
 const [productos, setProductos] = useState([
@@ -33,12 +33,12 @@ useEffect(() => {
       <h1>Información del pedido</h1>
       {productos.map((producto, index) => {
         // Filtrar los pedidos que corresponden al producto actual
-        const pedidosProducto = pedido.filter((p) => p.id === producto.idPedido);
+        const pedidosProducto = pedidosData.filter((p) => p.id === producto.idPedido);
         // Obtener la primera fecha de realización y recogida del grupo de pedidos
         const fechaRealizada =
-          pedidosProducto.length > 0 ? pedidosProducto[0].fecha_realizada : "";
+          pedidosProducto.length > 0 ? pedidosProducto[0].hora_realizada: "";
         const fechaRecogida =
-          pedidosProducto.length > 0 ? pedidosProducto[0].fecha_recogida : "";
+          pedidosProducto.length > 0 ? pedidosProducto[0].hora_recogida: "";
 
         return (
             <div className= "pedido">

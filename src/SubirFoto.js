@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function FileUploadButton() {
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    // Aquí puedes hacer algo con el archivo seleccionado, como subirlo a un servidor
-    console.log('Archivo seleccionado:', file);
+const SubirFoto = ({ onImageChange }) => {
+  const [file, setFile] = useState(null);
+
+  const handleFileInputChange = (event) => {
+    setFile(event.target.files[0]);
+    onImageChange(event.target.files[0]);
   };
 
   return (
     <div>
-      <input type="file" onChange={handleFileUpload} />
+      <input type="file" onChange={handleFileInputChange} />
     </div>
   );
-}
+};
 
-export default FileUploadButton;
+export default SubirFoto;

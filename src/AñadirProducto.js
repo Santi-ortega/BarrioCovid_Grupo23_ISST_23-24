@@ -1,69 +1,60 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import SubirFoto from './SubirFoto';
+import { useParams } from 'react-router-dom';
+import './Inicio_comprador.css';
 
 const AñadirProducto = ({ onAddProduct }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
+  const{idTienda} = useParams();
 
-  const handleFileUpload = (file) => {
-    setImage(file);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (image) {
-      const formData = new FormData();
-      formData.append("image", image);
-
-      // You can send the image to your server here
-      // ...
-
-      // After the image is saved, create a new product object
-      const newProduct = {
-        name,
-        description,
-        price,
-        foto: URL.createObjectURL(image),
-      };
-
-      onAddProduct(newProduct);
-
-      // Reset the form fields
-      setName("");
-      setDescription("");
-      setPrice("");
-      setImage(null);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newProduct = {
+      id: Date.now(),
+      idTienda: parseInt(idTienda),
+      nombre: name,
+      description: description,
+      foto: image,
+      precio: price,
+    };
+    onAddProduct(newProduct);
+    setName('');
+    setDescription('');
+    setPrice('');
+    setImage('');
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <input className='store li'
         type="text"
         placeholder="Product name"
         value={name}
-        onChange={(event) => setName(event.target.value)}
+        onChange={(e) => setName(e.target.value)}
       />
       <input
         type="text"
         placeholder="Product description"
         value={description}
-        onChange={(event) => setDescription(event.target.value)}
+        onChange={(e) => setDescription(e.target.value)}
       />
       <input
         type="text"
         placeholder="Product price"
         value={price}
-        onChange={(event) => setPrice(event.target.value)}
+        onChange={(e) => setPrice(e.target.value)}
       />
-      <SubirFoto onChange={handleFileUpload} />
+      <input
+        type="text"
+        placeholder="Product image URL"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+      />
       <button type="submit">Add Product</button>
     </form>
   );
-}
+};
 
 export default AñadirProducto;

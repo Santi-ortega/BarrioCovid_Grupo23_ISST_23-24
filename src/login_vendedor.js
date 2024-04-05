@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './login.css'
 import BackButton from './BackButton';
+import './Inicio_comprador.css'
 
 //Esta es la página para que el vendedor se loguee
 function Login_vendedor() {
@@ -21,15 +22,15 @@ function Login_vendedor() {
         <br></br>
         {/*Creamos un form que enviará el vendedor para identificarse cada vez que quiera iniciar sesión*/}
         <form onSubmit={handleClick}>
-          <div className="form-group">
+          <div className="store">
             <label className='parametro_inicio_sesion' htmlFor="usuario">Usuario:</label>
             <input type="text" id="usuario"/> {/*El vendedor introducirá el usuario con el que se registró*/}
           </div>
-          <div className="form-group">
+          <div className="store">
             <label className='parametro_inicio_sesion' htmlFor="contraseña">Contraseña:</label>
             <input type="password" id="contraseña" /> {/*El vendedor introducirá la contraseña con la que se registró*/}
           </div>
-          <div className="form-group">
+          <div className="store">
             <button type="submit">Aceptar</button>
           </div>
         </form>

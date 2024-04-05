@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
 import SubirFoto from './SubirFoto';
+import './Inicio_comprador.css'
 
 function Registro_Vendedor() {
   const [nombre, setNombre] = useState('');

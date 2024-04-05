@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { tienda } from './Inicio_comprador.js';
+import { tiendasData } from './Inicio_comprador.js';
 import './Productos.css';
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -36,7 +36,7 @@ function Productos() {
   const [quantities, setQuantities] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const { addToCart } = useCart();
-  
+
   useEffect(() => {
     // Filtrar los productos por el ID de la tienda
     const productosFiltrados = products.filter(producto => producto.idTienda === parseInt(idTienda));
@@ -49,7 +49,7 @@ function Productos() {
 
   return (
     <div>
-      <h1>{tienda.find(tienda => tienda.id === parseInt(idTienda))?.nombre}</h1>
+      <h1>{tiendasData.find(tienda => tienda.id === parseInt(idTienda))?.nombre}</h1>
       <h2>Productos:</h2>
       <Link to="/Carrito">
         <button className='botonCarrito'> <FontAwesomeIcon icon={faShoppingCart}/>

@@ -4,18 +4,17 @@ import {Link} from "react-router-dom";
 import './Inicio_vendedor.css'
 
 //Esta es la primera pantalla que ve el vendedor para ver si tiene pedidos pendientes
-
-function Inicio_vendedor() {
-
   //Simulación de los pedidos que le llegarían al vendedor
-  const [pedidos, setPedidos] = useState([
-      { id: 1, nombre: 'pedido 1', hora_realizada: "18:00", hora_recogida: "20:00"},
-      { id: 2, nombre: 'pedido 2', hora_realizada: "18:00", hora_recogida: "20:00"},
-      { id: 3, nombre: 'pedido 3', hora_realizada: "18:00", hora_recogida: "20:00"},
-      { id: 4, nombre: 'pedido 4', hora_realizada: "18:00", hora_recogida: "20:00"},
-      { id: 5, nombre: 'pedido 5', hora_realizada: "18:00", hora_recogida: "20:00"},
-    ]);
-   
+  const pedidosData = [
+      { id: 1, nombre: 'pedido 1', hora_realizada: "Hora de realización: 18:00", hora_recogida: "Hora de recogida: 20:00"},
+      { id: 2, nombre: 'pedido 2', hora_realizada: "Hora de realización: 18:00", hora_recogida: "Hora de recogida: 20:00"},
+      { id: 3, nombre: 'pedido 3', hora_realizada: "Hora de realización: 18:00", hora_recogida: "Hora de recogida: 20:00"},
+      { id: 4, nombre: 'pedido 4', hora_realizada: "Hora de realización: 18:00", hora_recogida: "Hora de recogida: 20:00"},
+      { id: 5, nombre: 'pedido 5', hora_realizada: "Hora de realización: 18:00", hora_recogida: "Hora de recogida: 20:00"},
+    ];
+  function Inicio_vendedor() {
+      const [pedidos, setPedidos] = useState(pedidosData); 
+      
   //Parámetro para navegar entre pantallas
   const navigate = useNavigate();
   const handleClick = (id) => {
@@ -43,5 +42,6 @@ function Inicio_vendedor() {
     </div>
   );
 }
+export {pedidosData};
 
 export default Inicio_vendedor;
