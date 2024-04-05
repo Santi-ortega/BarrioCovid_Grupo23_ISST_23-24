@@ -41,8 +41,8 @@ useEffect(() => {
           pedidosProducto.length > 0 ? pedidosProducto[0].fecha_recogida : "";
 
         return (
-            <div className= "store">
-          <div key={producto.id} className="store ">
+            <div className= "pedido">
+          <div key={producto.id} className="pedido">
             <h3>{producto.nombre}</h3>
             <h4>{producto.precio}€</h4>
             {index === productos.length-1 && (
