@@ -10,6 +10,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from './CartContext';
 
 function Productos() {
+
+  //Productos simulados
   const [products, setProducts] = useState([
   { id: 1, idTienda: 1 , nombre: 'Lomo', description: 'Lomo ibérico', foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF08GU6Mf9Kz6m5rFMG6gATiYKbTqQLO3sOP0PztQ5QQ&s", precio: '10'},
   { id: 2, idTienda: 1 , nombre: 'Chorizo', description: 'Chorizo de cantimpalo', foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgSTjY9gplXLJO4s6V8YOQemL9mv3Vl4iAu9vR_4EMg&s", precio: '5'},
@@ -43,6 +45,7 @@ function Productos() {
     setProducts(productosFiltrados);
   }, [idTienda, products]);
 
+  //Función que añade productos al carrito
   const handleAddToCart = (product , quantity) => {
     addToCart(product);
   };   
@@ -52,10 +55,11 @@ function Productos() {
       <h1>{tiendasData.find(tienda => tienda.id === parseInt(idTienda))?.nombre}</h1>
       <h2>Productos:</h2>
       <Link to="/Carrito">
-        <button className='botonCarrito'> <FontAwesomeIcon icon={faShoppingCart}/>
+        <button className='botonCarrito'> <FontAwesomeIcon icon={faShoppingCart}/>{/*Botón para ir al carrito*/}
         </button>
       </Link>
       <ul className='producto'>
+      {/*Mapeamos los productos para que salgan por pantalla */}
       {products.map((producto) => (
         <li key={producto.id} className='producto' >
           <h3>{producto.nombre}</h3>

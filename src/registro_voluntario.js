@@ -6,6 +6,7 @@ import BackButton from './BackButton';
 import axios from 'axios';
 import './Inicio_comprador.css'
 
+//Pantalla para que los voluntarios se registren
 function Registro_Voluntario() {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -49,6 +50,7 @@ function Registro_Voluntario() {
     return (
         <div>
           <h2>Registro de Voluntario</h2>
+          {/*Creamos un form para que el voluntario rellene y guardemos en la base de datos*/}
           <form className='form'>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Nombre</label>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+//Función para poder subir una foto a la base de datos
 const SubirFoto = ({ onImageChange }) => {
   const [file, setFile] = useState(null);
 

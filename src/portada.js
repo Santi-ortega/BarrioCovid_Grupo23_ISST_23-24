@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import './portada.css';
 import './Inicio_comprador.css'
 
+//Esta es la primera pantalla de la aplicación donde se da la opción de registrarse o hacer login
 function Portada() {
   return (
     <div>

@@ -6,6 +6,7 @@ import BackButton from './BackButton';
 import SubirFoto from './SubirFoto';
 import './Inicio_comprador.css'
 
+//Pantalla para que los vendedores se registren
 function Registro_Vendedor() {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -20,6 +21,7 @@ function Registro_Vendedor() {
     return (
         <div>
           <h2>Registro de Vendedor</h2>
+          {/*Creamos un form para que el vendedor rellene y guardemos en la base de datos*/}
           <form className='form'>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Nombre</label>
