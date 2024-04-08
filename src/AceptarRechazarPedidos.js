@@ -6,7 +6,10 @@ import axios from 'axios';
 import { pedidosData } from "./Inicio_vendedor.js"
 import { tiendasData } from './Inicio_comprador.js';
 
+//Esta es la pantalla que ve el vendedor al clicar en un pedido
 function AceptarRechazarPedidos () {
+
+  //Simulamos un grupo de productos que entrarían dentro de los pedidos
 const [productos, setProductos] = useState([
         { id: 1, idTienda: 1, nombre: "Lomo", idPedido: 1, precio: '10', foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF08GU6Mf9Kz6m5rFMG6gATiYKbTqQLO3sOP0PztQ5QQ&s"},
         { id: 2, idTienda: 1, nombre: "Chorizo", idPedido: 1, precio: '5', foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgSTjY9gplXLJO4s6V8YOQemL9mv3Vl4iAu9vR_4EMg&s"},
@@ -45,44 +48,44 @@ useEffect(() => {
   return (
     <div>
       <h1>Información del pedido</h1>
+      {/* Mapeamos los productos simulados arriba */}
       {productos.map((producto, index) => {
         // Filtrar los pedidos que corresponden al producto actual
         const pedidosProducto = pedidosData.filter((p) => p.id === producto.idPedido);
         // Obtener la primera fecha de realización y recogida del grupo de pedidos
-        const fechaRealizada =
-          pedidosProducto.length > 0 ? pedidosProducto[0].hora_realizada: "";
-        const fechaRecogida =
-          pedidosProducto.length > 0 ? pedidosProducto[0].hora_recogida: "";
-
+        const fechaRealizada = pedidosProducto.length > 0 ? pedidosProducto[0].hora_realizada : "";
+        const fechaRecogida = pedidosProducto.length > 0 ? pedidosProducto[0].hora_recogida : "";
+  
+        //Aquí renderizamos cada producto que está en el pedido con su nombre foto y precio
         return (
-            <div className= "store">
-          <div key={producto.id} className="store">
-            <img className="imagen-pequeña" src={producto.foto} alt={producto.nombre} />
-            <h3>{producto.nombre}</h3>
-            <h4>{producto.precio}€</h4>
-            {index === productos.length-1 && (
-            <ul>
-              <li>
-                <p>{fechaRealizada}</p>
-                <p>{fechaRecogida}</p>
-              </li>
-            </ul>
-            )}
-           {index === productos.length - 1 && (
-              <>
-                <button onClick={() => handleClick(pedidosProducto[0].id)}>
-                  Aceptar
-                </button>
-                <button onClick={() => handleClick(pedidosProducto[0].id)}>
-                  Rechazar
-                </button>
-              </>
-            )}
-          </div>
+          <div className="store" key={producto.id}>
+            <div className="store">
+              <img className="imagen-pequeña" src={producto.foto} alt={producto.nombre} />
+              <h3>{producto.nombre}</h3>
+              <h4>{producto.precio}€</h4>
+              {index === productos.length - 1 && (
+                <ul>
+                  <li>
+                    <p>{fechaRealizada}</p>
+                    <p>{fechaRecogida}</p>
+                  </li>
+                </ul>
+              )}
+              {index === productos.length - 1 && (
+                <>
+                  <button onClick={() => handleClick(pedidosProducto[0].id)}>
+                    Aceptar
+                  </button>
+                  <button onClick={() => handleClick(pedidosProducto[0].id)}>
+                    Rechazar
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         );
       })}
     </div>
-  );
+  ); 
 }
   export default AceptarRechazarPedidos;
