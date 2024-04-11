@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
-import SubirFoto from './SubirFoto';
 import './Inicio_comprador.css'
 
 //Pantalla para que los vendedores se registren
@@ -16,13 +15,28 @@ function Registro_Vendedor() {
   const [direccion, setDireccion] = useState('');
   const [tienda, setTienda] = useState('');
   const [horario, setHorario] = useState('');
-  const [imagen, setImagen] = useState('');
+  const [imagen, setImagen] = useState(null);
+
+  const fileInputRef = useRef(null);
+
+  const handleImageChange = (e) => {
+    setImagen(e.target.files[0]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("image", fileInputRef.current.files[0]);
+
+    // Send the formData to the server using fetch or axios
+  };
   
     return (
         <div>
           <h2>Registro de Vendedor</h2>
           {/*Creamos un form para que el vendedor rellene y guardemos en la base de datos*/}
-          <form className='form'>
+          <form onSubmit={handleSubmit} className='form'>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Nombre</label>
               <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
@@ -57,7 +71,8 @@ function Registro_Vendedor() {
             </div>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Imagen</label> 
-              <input type="text" value={imagen} onChange={(e) => setImagen(e.target.value)}/> <SubirFoto/>
+              <input type="file" accept=".jpg,.jpeg,.png" ref={fileInputRef} onChange={handleImageChange}/>
+              
             </div>
             <div>
             <button type="submit">Registrarse</button>
