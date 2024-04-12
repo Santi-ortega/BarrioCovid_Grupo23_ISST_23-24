@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
-import SubirFoto from './SubirFoto';
 import './Inicio_comprador.css'
 import axios from 'axios';
 
