@@ -19,6 +19,7 @@ import Login_vendedor from './login_vendedor';
 import AceptarRechazarPedidos from "./AceptarRechazarPedidos"
 import GestionTienda from "./GestionTienda"
 import AñadirProducto from "./AñadirProducto"
+import Login_voluntario from './login_voluntario';
 
   function App() {
     const [loading, setLoading] = useState(true);
@@ -52,6 +53,7 @@ import AñadirProducto from "./AñadirProducto"
             <Route path="/registro_comprador" element={<Registro_Comprador />} />
             <Route path="/login_comprador" element={<Login_comprador />} />
             <Route path="/login_vendedor" element={<Login_vendedor />} />
+            <Route path="/login_voluntario" element={<Login_voluntario />} />
             <Route path="/registro_vendedor" element={<Registro_Vendedor />} />
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
             <Route path="/login_comprador/Inicio_comprador" element={<Inicio_comprador/>} />

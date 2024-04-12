@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {Link} from "react-router-dom";
-import './login.css'
-import BackButton from './BackButton';
-import './Inicio_comprador.css';
 import axios from 'axios';
+import './login.css';
+import BackButton from './BackButton';
 
-//Página donde se loguean los compradores
-function Login_comprador() {
+function Login_voluntario() {
   const [error, setError] = useState(false);
-  const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contrasena: '' }); //Almacen correo y contraseña
+  const [datosUsuario, setDatosUsuario] = useState({ correo: '', contraseña: '' });
   const navigate = useNavigate();
 
-  //Con esto controlamos que cuando se cliquee, se redirija a la lista de tiendas accesibles por el comprador
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
     try {
-      const response = await axios.post('http://localhost:8080/comprador/login', datosUsuario);
+      const response = await axios.post('http://localhost:8080/voluntario/login', datosUsuario);
       if (response.status === 200) {
-        navigate('/login_comprador/Inicio_comprador');
+        navigate('/login_voluntario/Inicio_voluntario');
       } else {
         setError(true);
       }
@@ -52,4 +48,4 @@ function Login_comprador() {
   );
 }
 
-export default Login_comprador;
+export default Login_voluntario;
