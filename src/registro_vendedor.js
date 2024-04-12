@@ -15,7 +15,7 @@ function Registro_Vendedor() {
   const [direccion, setDireccion] = useState('');
   const [tienda, setTienda] = useState('');
   const [horario, setHorario] = useState('');
-  const [imagen, setImagen] = useState(null);
+  const [imagen, setImagen] = useState('');
 
   const fileInputRef = useRef(null);
 
@@ -26,7 +26,12 @@ function Registro_Vendedor() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+  if (!imagen) {
+      alert('Please select an image');
+      return;
+  }
+
+  const formData = new FormData();
     formData.append("image", fileInputRef.current.files[0]);
 
     // Send the formData to the server using fetch or axios
@@ -72,7 +77,6 @@ function Registro_Vendedor() {
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Imagen</label> 
               <input type="file" accept=".jpg,.jpeg,.png" ref={fileInputRef} onChange={handleImageChange}/>
-              
             </div>
             <div>
             <button type="submit">Registrarse</button>
