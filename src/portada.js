@@ -17,7 +17,7 @@ function Portada() {
           <NavLink to="/login_vendedor">
             <button>Vendedor</button>
           </NavLink>
-          <NavLink to="/login">
+          <NavLink to="/login_voluntario">
             <button>Voluntario</button>
           </NavLink>
         </div>
