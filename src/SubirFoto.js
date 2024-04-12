@@ -5,20 +5,15 @@ const SubirFoto = ({ onImageChange }) => {
   const [file, setFile] = useState(null);
 
   const handleFileInputChange = (event) => {
-    const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile);
-    } else {
-      console.error("No se seleccionó ningún archivo.");
-    }
+    setFile(event.target.files[0]);
+    onImageChange(event.target.files[0]);
   };
 
   return (
     <div>
-      <SubirFoto onImageChange={handleFileInputChange} />
+      <input type="file" onChange={handleFileInputChange} />
     </div>
   );
-
 };
 
 export default SubirFoto;

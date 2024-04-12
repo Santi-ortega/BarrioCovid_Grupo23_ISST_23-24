@@ -50,14 +50,6 @@ function Registro_Vendedor() {
       setError('Error de red: No se pudo conectar con el servidor');
     }
   };
-  const onImageChange = (e) => {
-    const selectedFile = e.target.files[0]; // Accede al primer archivo seleccionado
-    if (selectedFile) {
-      setImagen(selectedFile); // Establece el archivo seleccionado como la imagen
-    } else {
-      console.error("No se seleccionó ningún archivo.");
-    }
-  };
 
   if (registroExitoso) {
     return (
@@ -109,10 +101,10 @@ function Registro_Vendedor() {
               <label className='parametro_registro_comprador'>Horario</label>
               <input type="text" value={horario} onChange={(e) => setHorario(e.target.value)} required/>
             </div>
-              <div className='apartado'>
-                <label className='parametro_registro_comprador'>Imagen</label> 
-                <SubirFoto onImageChange={onImageChange}/>  
-              </div>
+            <div className='apartado'>
+              <label className='parametro_registro_comprador'>Imagen</label> 
+              <input type="text" value={imagen} onChange={(e) => setImagen(e.target.value)} required/> <SubirFoto/>
+            </div>
             <div>
             <button type="submit">Registrarse</button>
             </div>
