@@ -20,6 +20,7 @@ import AceptarRechazarPedidos from "./AceptarRechazarPedidos"
 import GestionTienda from "./GestionTienda"
 import AñadirProducto from "./AñadirProducto"
 import Login_voluntario from './login_voluntario';
+import EditarProducto from './EditarProducto';
 
   function App() {
     const [loading, setLoading] = useState(true);
@@ -58,11 +59,12 @@ import Login_voluntario from './login_voluntario';
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
             <Route path="/login_comprador/Inicio_comprador" element={<Inicio_comprador/>} />
             <Route path="/login_vendedor/Inicio_vendedor/:idVendedor" element={<Inicio_vendedor/>} />
+            <Route path="/login_vendedor/Inicio_vendedor/:idVendedor/edit/:id" element={<EditarProducto />} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
             <Route path="/AceptarRechazarPedidos/pedido/:idPedido" element={<AceptarRechazarPedidos />} />
             <Route path="/carrito" element={<Carrito cartItems={cartItems} />} />
             <Route path="/PantallaPago" element={<PantallaPago />} />
-            <Route path="/GestionTienda" element={<GestionTienda />} />
+            <Route path="/login_vendedor/Inicio_vendedor/:idVendedor/GestionTienda" element={<GestionTienda />} />
             <Route path="/AñadirProducto" element={<AñadirProducto />} />
           </Routes>
           </CartProvider>

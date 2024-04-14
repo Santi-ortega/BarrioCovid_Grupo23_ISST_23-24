@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
-import './Inicio_vendedor.css'
+import './Inicio_vendedor.css';
+import { useParams } from 'react-router-dom';
 
 //Esta es la primera pantalla que ve el vendedor para ver si tiene pedidos pendientes
   //Simulación de los pedidos que le llegarían al vendedor
@@ -14,6 +15,7 @@ import './Inicio_vendedor.css'
     ];
   function Inicio_vendedor() {
       const [pedidos, setPedidos] = useState(pedidosData); 
+      const { idVendedor } = useParams();
       
   //Parámetro para navegar entre pantallas
   const navigate = useNavigate();
@@ -35,7 +37,7 @@ import './Inicio_vendedor.css'
         ))}
       </div>
       <div className="store">
-      <Link to= '/GestionTienda'>
+      <Link to={`/login_vendedor/Inicio_vendedor/${idVendedor}/GestionTienda`}>
       <button className ="gestión" >Gestionar Tienda</button>
       </Link>
       </div>

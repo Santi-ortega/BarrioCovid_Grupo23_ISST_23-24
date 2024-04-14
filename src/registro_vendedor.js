@@ -103,7 +103,7 @@ function Registro_Vendedor() {
             </div>
             <div className='apartado'>
               <label className='parametro_registro_comprador'>Imagen</label> 
-              <input type="text" value={imagen} onChange={(e) => setImagen(e.target.value)} required/> <SubirFoto/>
+              <input type="text" value={imagen} onChange={(e) => setImagen(e.target.value)} required/>
             </div>
             <div>
             <button type="submit">Registrarse</button>

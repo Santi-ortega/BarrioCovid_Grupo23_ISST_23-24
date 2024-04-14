@@ -5,12 +5,13 @@ import { useParams } from 'react-router-dom';
 import './Productos.css';
 import { tiendasData } from './Inicio_comprador.js';
 import {Link} from "react-router-dom";
-import AñadirProducto from './AñadirProducto';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function GestionTienda() {
         const [products, setProducts] = useState([]);
         const [editedProduct, setEditedProduct] = useState(null);
         const { idTienda } = useParams();
+        const {idVendedor} = useParams();
         const [newProduct, setNewProduct] = useState({
           nombre: '',
           descripcion: '',
@@ -18,7 +19,21 @@ function GestionTienda() {
           precio: '',
           stock: ''
         });
-      
+
+          // Función para cargar los productos al iniciar
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/productos`);
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error de red:', error);
+      }
+    };
+
+    fetchProducts();
+  }, [idTienda]);
+
         const handleInputChange = (e) => {
           const { name, value } = e.target;
           setNewProduct({ ...newProduct, [name]: value });
@@ -49,10 +64,7 @@ function GestionTienda() {
         };
       
         const handleEditProduct = (id) => {
-          // Buscar el producto que se desea editar
-          const productToEdit = products.find(producto => producto.id === id);
-          // Establecer el producto a editar en el estado
-          setEditedProduct(productToEdit);
+
         };
       
         const handleUpdateProduct = () => {
@@ -68,22 +80,20 @@ function GestionTienda() {
           // Limpiar el estado del producto editado
           setEditedProduct(null);
         };
-      
-        const handleChange = (e) => {
-          const { name, value } = e.target;
-          // Actualizar el estado del producto editado
-          setEditedProduct({ ...editedProduct, [name]: value });
+
+        const handleDeleteProduct = async (id) => {
+          try {
+            // Realizar la solicitud DELETE al servidor para eliminar el producto
+            await axios.delete(`http://localhost:8080/productos/${id}`);
+        
+            // Actualizar el estado local de los productos eliminando el producto con el ID proporcionado
+            const updatedProducts = products.filter(producto => producto.id !== id);
+            setProducts(updatedProducts);
+          } catch (error) {
+            console.error('Error al eliminar el producto:', error);
+          }
         };
-        const handleFileChange = (e) => {
-          const file = e.target.files[0]; // Obtiene el primer archivo seleccionado
-          // Puedes hacer lo que necesites con el archivo aquí, como almacenarlo en el estado
-          setNewProduct({ ...newProduct, foto: file });
-        };
-        const handleDeleteProduct = (id) => {
-          // Eliminar el producto con el id proporcionado
-          const updatedProducts = products.filter(producto => producto.id !== id);
-          setProducts(updatedProducts);
-        };
+        
       
         return (
           <div>
@@ -98,7 +108,10 @@ function GestionTienda() {
                 <p>{producto.descripcion}</p>
                 <p>Precio: {producto.precio}€</p>
                 <p>Stock: {producto.stock}</p>
-                <button onClick={() => handleEditProduct(producto.id)}>Editar</button>
+                <NavLink to={`/login_vendedor/Inicio_vendedor/${idVendedor}/edit/${producto.id}`}>
+                <button>Editar</button>
+                </NavLink>
+
                 <button onClick={() => handleDeleteProduct(producto.id)}>Eliminar</button>
               </div>
               </li>
