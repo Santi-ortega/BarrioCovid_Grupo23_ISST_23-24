@@ -20,7 +20,8 @@ function Login_vendedor() {
     try {
       const response = await axios.post('http://localhost:8080/vendedor/login', datosUsuario);
       if (response.status === 200) {
-        navigate('/login_vendedor/Inicio_vendedor');
+        const idVendedor = response.data.id; // Suponiendo que el ID del vendedor está en response.data
+        navigate(`/login_vendedor/Inicio_vendedor/${idVendedor}`);
       } else {
         setError(true);
       }
@@ -29,6 +30,7 @@ function Login_vendedor() {
       setError(true);
     }
   };
+  
 
   //Renderizamos la página
     return (

@@ -57,7 +57,7 @@ import Login_voluntario from './login_voluntario';
             <Route path="/registro_vendedor" element={<Registro_Vendedor />} />
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
             <Route path="/login_comprador/Inicio_comprador" element={<Inicio_comprador/>} />
-            <Route path="/login_vendedor/Inicio_vendedor" element={<Inicio_vendedor/>} />
+            <Route path="/login_vendedor/Inicio_vendedor/:idVendedor" element={<Inicio_vendedor/>} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
             <Route path="/AceptarRechazarPedidos/pedido/:idPedido" element={<AceptarRechazarPedidos />} />
             <Route path="/carrito" element={<Carrito cartItems={cartItems} />} />

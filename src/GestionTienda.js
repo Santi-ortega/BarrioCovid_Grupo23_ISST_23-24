@@ -112,12 +112,12 @@ function GestionTienda() {
               </div>
               <div>
                 <label htmlFor="description">Descripción:</label>
-                <input type="text" id="description" name="description" value={newProduct.description} onChange={handleInputChange} required />
+                <input type="text" id="descripcion" name="descripcion" value={newProduct.descripcion} onChange={handleInputChange} required />
               </div>
               <div>
-                <label htmlFor="foto">Foto:</label>
-                 {/* Utilizamos un input de tipo file para permitir la carga de la foto desde el ordenador */}
-                <input type="file" id="foto" name="foto" onChange={handleFileChange} accept="image/*" required />
+                <label htmlFor="foto">Foto(URL):</label>
+                 {/* Ahora utilizamos un input de tipo text para permitir la entrada de la URL de la imagen */}
+                <input type="url" id="foto" name="foto" value={newProduct.foto} onChange={handleInputChange} required />
               </div>
               <div>
                 <label htmlFor="precio">Precio:</label>
