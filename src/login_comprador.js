@@ -9,7 +9,7 @@ import axios from 'axios';
 //Página donde se loguean los compradores
 function Login_comprador() {
   const [error, setError] = useState(false);
-  const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contrasena: '' }); //Almacen correo y contraseña
+  const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contraseña: '' }); //Almacen correo y contraseña
   const navigate = useNavigate();
 
   //Con esto controlamos que cuando se cliquee, se redirija a la lista de tiendas accesibles por el comprador
@@ -19,7 +19,8 @@ function Login_comprador() {
     try {
       const response = await axios.post('http://localhost:8080/comprador/login', datosUsuario);
       if (response.status === 200) {
-        navigate('/login_comprador/Inicio_comprador');
+        const idComprador = response.data.id;
+        navigate(`/login_comprador/Inicio_comprador/${idComprador}`);
       } else {
         setError(true);
       }

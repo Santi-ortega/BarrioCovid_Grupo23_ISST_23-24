@@ -24,6 +24,7 @@ import EditarProducto from './EditarProducto';
 
   function App() {
     const [loading, setLoading] = useState(true);
+    const { idComprador } = useParams();
     const { idVendedor } = useParams();
     const { idVoluntario } = useParams();
     const { idTienda } = useParams();
@@ -37,7 +38,7 @@ import EditarProducto from './EditarProducto';
       }
   
       fetchData();
-    }, [idVendedor, idVoluntario, idTienda]);
+    }, [idComprador, idVendedor, idVoluntario, idTienda]);
 
   return (
     <div className="App">
@@ -57,7 +58,7 @@ import EditarProducto from './EditarProducto';
             <Route path="/login_voluntario" element={<Login_voluntario />} />
             <Route path="/registro_vendedor" element={<Registro_Vendedor />} />
             <Route path="/registro_voluntario" element={<Registro_Voluntario />} />
-            <Route path="/login_comprador/Inicio_comprador" element={<Inicio_comprador/>} />
+            <Route path="/login_comprador/Inicio_comprador/:idComprador" element={<Inicio_comprador/>} />
             <Route path="/login_vendedor/Inicio_vendedor/:idVendedor" element={<Inicio_vendedor/>} />
             <Route path="/login_vendedor/Inicio_vendedor/:idVendedor/edit/:id" element={<EditarProducto />} />
             <Route path="/Productos/tienda/:idTienda" element={<Productos />} />

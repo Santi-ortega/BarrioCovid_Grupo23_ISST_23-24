@@ -10,7 +10,7 @@ import axios from 'axios';
 function Login_vendedor() {
 
   const [error, setError] = useState(false); //Parametro para informar de un posible error
-  const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contrasena: '' }); //Almacenamiento correo y contraseña
+  const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contraseña: '' }); //Almacenamiento correo y contraseña
   const navigate = useNavigate(); //Parámetro para navegar entre pantallas
 
 
