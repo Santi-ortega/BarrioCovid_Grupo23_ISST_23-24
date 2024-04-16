@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { tiendasData } from './Inicio_comprador.js';
 import './Productos.css';
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -52,7 +51,7 @@ function Productos() {
 
   return (
     <div>
-      <h1>{tiendasData.find(tienda => tienda.id === parseInt(idTienda))?.nombre}</h1>
+      {/*<h1>{tiendasData.find(tienda => tienda.id === parseInt(idTienda))?.nombre}</h1>*/}
       <h2>Productos:</h2>
       <Link to="/Carrito">
         <button className='botonCarrito'> <FontAwesomeIcon icon={faShoppingCart}/>{/*Botón para ir al carrito*/}

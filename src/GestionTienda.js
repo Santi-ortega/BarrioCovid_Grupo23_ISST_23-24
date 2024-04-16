@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './Productos.css';
-import { tiendasData } from './Inicio_comprador.js';
 
 function GestionTienda() {
     const [products, setProducts] = useState([]);
@@ -75,7 +74,7 @@ function GestionTienda() {
 
     return (
         <div>
-            <h1>{tiendasData.find(t => t.id === parseInt(idTienda))?.nombre}</h1>
+            {/*<h1>{tiendasData.find(t => t.id === parseInt(idTienda))?.nombre}</h1>*/}
             <h2>Productos:</h2>
             <ul className='producto'>
             {Array.isArray(products) ? (
