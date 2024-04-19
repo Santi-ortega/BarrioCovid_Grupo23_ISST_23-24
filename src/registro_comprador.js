@@ -98,7 +98,7 @@ function Registro_Comprador() {
             </div>
           </form>
           <BackButton/>
-        </div>
+        </div> 
   );
 }
 export default Registro_Comprador;

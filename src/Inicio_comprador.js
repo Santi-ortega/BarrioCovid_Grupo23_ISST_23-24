@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './Inicio_comprador.css';
 
 function Inicio_comprador() {
   const [vendedores, setVendedores] = useState([]); 
+  const { idComprador } = useParams(); // Obtener el ID del comprador de la URL
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,9 +21,10 @@ function Inicio_comprador() {
     fetchVendedores();
   }, []);
 
-  const handleClick = (id) => {
-    navigate(`/Productos/tienda/${id}`);
+  const handleClick = (idVendedor) => {
+    navigate(`/Productos/tienda/${idComprador}/${idVendedor}`);
   };
+  
 
   return (
     <div>

@@ -61,9 +61,9 @@ import EditarProducto from './EditarProducto';
             <Route path="/login_comprador/Inicio_comprador/:idComprador" element={<Inicio_comprador/>} />
             <Route path="/login_vendedor/Inicio_vendedor/:idVendedor" element={<Inicio_vendedor/>} />
             <Route path="/login_vendedor/Inicio_vendedor/:idVendedor/edit/:id" element={<EditarProducto />} />
-            <Route path="/Productos/tienda/:idTienda" element={<Productos />} />
+            <Route path="/Productos/tienda/:idComprador/:idVendedor" element={<Productos />} />
             <Route path="/AceptarRechazarPedidos/pedido/:idPedido" element={<AceptarRechazarPedidos />} />
-            <Route path="/carrito" element={<Carrito cartItems={cartItems} />} />
+            <Route path="/carrito/:idComprador/:idVendedor" element={<Carrito cartItems={cartItems} />} />
             <Route path="/PantallaPago" element={<PantallaPago />} />
             <Route path="/login_vendedor/Inicio_vendedor/:idVendedor/GestionTienda" element={<GestionTienda />} />
             <Route path="/AñadirProducto" element={<AñadirProducto />} />

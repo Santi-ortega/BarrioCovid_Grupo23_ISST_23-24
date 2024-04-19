@@ -11,8 +11,10 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     const existe = cartItems.findIndex(item => item.id === product.id);
     if (existe === -1) {
+      // Convertir el precio a cadena si es necesario
+      const precioString = product.precio.toString();
       // El producto no está en el carrito, lo agregamos
-      setCartItems(prevCartItems => [...prevCartItems, product]);
+      setCartItems(prevCartItems => [...prevCartItems, { ...product, precio: precioString }]);
     }
   };
 
