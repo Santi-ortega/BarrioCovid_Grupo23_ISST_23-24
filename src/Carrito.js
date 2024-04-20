@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useCart } from './CartContext';
 import './carrito.css'
 import {Link} from "react-router-dom";
-
+import { useNavigate, useParams } from 'react-router-dom';
 //Pantalla carrito de la compra
 
 const Carrito = () => {
@@ -10,6 +10,8 @@ const Carrito = () => {
   //Variables para tener el estado de los item del carrito y de la cantidad de cada item
   const { cartItems, updateQuantity, removeFromCart } = useCart();
   const [selectedQuantities, setSelectedQuantities] = useState(cartItems.reduce((acc, item) => ({ ...acc, [item.id]: item.quantity || 1 }), {}));
+  const { idComprador, idVendedor } = useParams();
+  const navigate = useNavigate();
 
   //Función para poder cambiar el número deseado de cada tipo de producto
   const handleQuantityChange = (productId, quantity) => {
@@ -39,6 +41,15 @@ const Carrito = () => {
     }, 0).toFixed(2);
   };
 
+  const handleCheckout = () => {
+    const cartData = cartItems.map(item => ({
+      name: item.nombre,
+      quantity: selectedQuantities[item.id] || item.quantity
+    }));
+  
+    navigate(`/PantallaPago/${idComprador}/${idVendedor}`, { state: { cartData } });
+  };
+
   //Renderizamos en la página ./carrito
   return (
     <div className="carrito-container">
@@ -66,9 +77,7 @@ const Carrito = () => {
       <h3>Total: {getTotalPrice()}€</h3>
       {/*Aquí sale el precio total de la compra*/}
       </div>
-      <Link to="/PantallaPago">
-        <button className='btn-eliminar'>ACEPTAR</button>{/*Botón para aceptar la cesta y pasar a la pantalla de pago*/}
-      </Link>
+        <button className='btn-eliminar' onClick={handleCheckout}>ACEPTAR</button>{/*Botón para aceptar la cesta y pasar a la pantalla de pago*/}
     </div>
   );
 };
