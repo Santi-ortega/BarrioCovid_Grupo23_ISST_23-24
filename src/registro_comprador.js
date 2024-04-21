@@ -14,7 +14,7 @@ function Registro_Comprador() {
   const [correo, setCorreo] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [direccion, setDireccion] = useState('');
-  const [isVulnerable, setIsVulnerable] = useState(true);
+  const [vulnerable, setVulnerable] = useState('');
   const [registroExitoso, setRegistroExitoso] = useState(false);
   const [error, setError] = useState(null);
 
@@ -28,7 +28,7 @@ function Registro_Comprador() {
       correo,
       contraseña,
       direccion,
-      isVulnerable
+      vulnerable
     };
 
     try {
@@ -91,14 +91,21 @@ function Registro_Comprador() {
             </div>
             <div className='store'>
               <label className='parametro_registro_comprador'>Soy Vulnerable</label>
-              <input type="checkbox" checked={isVulnerable} onChange={(e) => setIsVulnerable(e.target.checked)} />
-            </div>
+              <div>
+                <input type="radio" id="si" name="vulnerable" value="Si" checked={vulnerable === 'Si'} onChange={(e) => setVulnerable(e.target.value)} />
+                <label htmlFor="si">Sí</label>
+              </div>
+              <div>
+              <input type="radio" id="no" name="vulnerable" value="No" checked={vulnerable === 'No'} onChange={(e) => setVulnerable(e.target.value)} />
+              <label htmlFor="no">No</label>
+              </div>
+              </div>
             <div>
             <button type="submit">Registrarse</button>
             </div>
           </form>
           <BackButton/>
-        </div> 
+        </div>
   );
 }
 export default Registro_Comprador;
