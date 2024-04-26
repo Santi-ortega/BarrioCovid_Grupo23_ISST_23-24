@@ -53,7 +53,7 @@ const EditarProducto = () => {
         </label>
         <label>
           Descripción:
-          <textarea name="descripcion" value={producto.descripcion} onChange={handleChange} />
+          <input type="text" name="descripcion" value={producto.descripcion} onChange={handleChange} />
         </label>
         <label>
           Precio:
@@ -63,8 +63,7 @@ const EditarProducto = () => {
           Stock:
           <input type="text" name="stock" value={producto.stock} onChange={handleChange} />
         </label>
-        <button type="button" onClick={handleGuardarCambios}>Guardar Cambios</button>
-      </form>
+        <button type="button" onClick={handleGuardarCambios} style={{ backgroundColor: '#6a6446', color: '#ffffff', border: 'none', padding: '10px 20px', fontSize: '12px' }}>Guardar Cambios</button>      </form>
     </div>
   );
 };
