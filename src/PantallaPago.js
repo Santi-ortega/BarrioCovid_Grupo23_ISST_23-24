@@ -26,41 +26,42 @@ function PantallaPago() {
     fetchComprador();
   }, [idComprador]);
 
-  //Función para enviar el proceso de pago
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const descripcion = cartData.map(item => `${item.name}: ${item.quantity}`).join(', ');
-  
-      const data = {
-        vendedorId: idVendedor,
-        comprador,
-        horaRecogida: hour,
-        descripcion: descripcion
-      };
-  
-      console.log(data); // Imprime los datos antes de serializarlos
-  
-      const jsonData = JSON.stringify(data); // Serializar el objeto data a JSON
-  
-      const response = await axios.post('http://localhost:8080/pedidos', jsonData, {
-        headers: {
-          'Content-Type': 'application/json' // Especificar el tipo de contenido como JSON
+    //Función para enviar el proceso de pago
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const descripcion = cartData.map(item => `${item.name}: ${item.quantity}`).join(', ');
+    
+        const data = {
+          vendedorId: idVendedor,
+          comprador,
+          horaRecogida: hour,
+          descripcion: descripcion
+        };
+    
+        console.log(data); // Imprime los datos antes de serializarlos
+    
+        const jsonData = JSON.stringify(data); // Serializar el objeto data a JSON
+    
+        const response = await axios.post('http://localhost:8080/pedidos', jsonData, {
+          headers: {
+            'Content-Type': 'application/json' // Especificar el tipo de contenido como JSON
+          }
+        });
+    
+        if (response.status === 201) {
+          console.log('Pedido enviado con éxito');
+          alert(`Pedido realizado con éxito. IMPORTANTE! ID del pedido: ${response.data.id}, lo necesitará para recoger el pedido`); // Muestra una alerta con el ID del pedido
+          // Aquí podrías redirigir a una página de confirmación o realizar otras acciones
+        } else {
+          console.error('Error al enviar el pedido');
+          // Manejar el error en caso de que la solicitud no sea exitosa
         }
-      });
-  
-      if (response.status === 201) {
-        console.log('Pedido enviado con éxito');
-        // Aquí podrías redirigir a una página de confirmación o realizar otras acciones
-      } else {
-        console.error('Error al enviar el pedido');
-        // Manejar el error en caso de que la solicitud no sea exitosa
+      } catch (error) {
+        console.error('Error al enviar el pedido:', error);
+        // Manejar errores de red u otros errores
       }
-    } catch (error) {
-      console.error('Error al enviar el pedido:', error);
-      // Manejar errores de red u otros errores
-    }
-  };
+    };
 
   return (
     <div>

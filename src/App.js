@@ -21,7 +21,7 @@ import GestionTienda from "./GestionTienda"
 import AñadirProducto from "./AñadirProducto"
 import Login_voluntario from './login_voluntario';
 import EditarProducto from './EditarProducto';
-
+import Inicio_voluntario from './Inicio_voluntario';
   function App() {
     const [loading, setLoading] = useState(true);
     const { idComprador } = useParams();

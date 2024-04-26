@@ -34,7 +34,7 @@ function AceptarRechazarPedidos() {
       <h1>Detalles del Pedido</h1>
       {pedido ? (
         <div>
-          <h3>ID del Pedido: {pedido.id}</h3>
+          <h3>Id del pedido: {pedido.id}</h3>
           <h3>Hora de Recogida: {pedido.horaRecogida}:00 horas</h3>
         <h3>Descripción: {pedido.descripcion}</h3>
           <button onClick={handleAceptar}>Aceptar</button>
