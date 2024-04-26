@@ -30,6 +30,7 @@ function Productos() {
   // Función para agregar un producto al carrito
   const handleAddToCart = (product) => {
     addToCart(product);
+    alert('Producto añadido: ' + product.nombre); // Mostrar una alerta con el nombre del producto añadido
   };
 
   return (
