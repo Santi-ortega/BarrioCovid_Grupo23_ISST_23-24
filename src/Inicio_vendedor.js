@@ -18,7 +18,6 @@ function Inicio_vendedor() {
         console.error('Error al obtener los pedidos del vendedor:', error);
       }
     };
-
     fetchPedidos();
   }, [idVendedor]);
 

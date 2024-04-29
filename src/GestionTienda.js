@@ -25,7 +25,6 @@ function GestionTienda() {
                 console.error('Error de red:', error);
             }
         };
-
         fetchProducts();
     }, [idTienda]);
 

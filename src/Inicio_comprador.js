@@ -17,7 +17,6 @@ function Inicio_comprador() {
         console.error('Error de red:', error);
       }
     };
-
     fetchVendedores();
   }, []);
 

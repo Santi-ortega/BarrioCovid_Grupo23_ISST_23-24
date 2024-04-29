@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {Link} from "react-router-dom";
 import './login.css'
 import BackButton from './BackButton';
 import './Inicio_comprador.css'
@@ -8,11 +7,9 @@ import axios from 'axios';
 
 //Esta es la página para que el vendedor se loguee
 function Login_vendedor() {
-
   const [error, setError] = useState(false); //Parametro para informar de un posible error
   const [datosUsuario, setDatosUsuario] = useState({ correoElectronico: '', contraseña: '' }); //Almacenamiento correo y contraseña
   const navigate = useNavigate(); //Parámetro para navegar entre pantallas
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +28,6 @@ function Login_vendedor() {
     }
   };
   
-
   //Renderizamos la página
     return (
       <div>

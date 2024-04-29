@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import './Inicio_comprador.css';
 
 const AñadirProducto = ({ onAddProduct }) => {
+
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState(null);
   const { idTienda } = useParams();
-
   const formData = useRef(new FormData());
   const fileInputRef = useRef(null);
 
@@ -37,6 +37,7 @@ const AñadirProducto = ({ onAddProduct }) => {
       foto: imageUrl, // Pass the image directly
       precio: price,
     };
+    
     onAddProduct(newProduct);
     setName('');
     setDescription('');

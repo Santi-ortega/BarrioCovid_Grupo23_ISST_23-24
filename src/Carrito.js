@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from './CartContext';
 import './carrito.css'
-import {Link} from "react-router-dom";
 import { useNavigate, useParams } from 'react-router-dom';
 //Pantalla carrito de la compra
 

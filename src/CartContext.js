@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
 //En este archivo creamos un contexto (el carrito) para que todas las pantallas tengan acceso a él
-
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import './App.css';
@@ -22,8 +21,8 @@ import AñadirProducto from "./AñadirProducto"
 import Login_voluntario from './login_voluntario';
 import EditarProducto from './EditarProducto';
 import Inicio_voluntario from './Inicio_voluntario';
+
   function App() {
-    const [loading, setLoading] = useState(true);
     const { idComprador } = useParams();
     const { idVendedor } = useParams();
     const { idVoluntario } = useParams();

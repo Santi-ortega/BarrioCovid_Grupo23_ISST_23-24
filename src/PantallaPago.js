@@ -22,7 +22,6 @@ function PantallaPago() {
         console.error('Error al obtener el comprador:', error);
       }
     };
-
     fetchComprador();
   }, [idComprador]);
 

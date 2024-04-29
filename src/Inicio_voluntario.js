@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Inicio_vendedor.css';
 import axios from 'axios';
 
@@ -17,7 +17,6 @@ function Inicio_voluntario() {
         console.error('Error al obtener los pedidos de los compradores vulnerables:', error);
       }
     };
-
     fetchPedidos();
   }, []);
 

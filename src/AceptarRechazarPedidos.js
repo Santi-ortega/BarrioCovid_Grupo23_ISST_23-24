@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+
 function AceptarRechazarPedidos() {
   const { idPedido } = useParams();
   const [pedido, setPedido] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPedido = async () => {
@@ -20,14 +20,6 @@ function AceptarRechazarPedidos() {
 
     fetchPedido();
   }, [idPedido]);
-
-  const handleAceptar = async () => {
-    // Lógica para aceptar el pedido
-  };
-
-  const handleRechazar = async () => {
-    // Lógica para rechazar el pedido
-  };
 
   return (
     <div>

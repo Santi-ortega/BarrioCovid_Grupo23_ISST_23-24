@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import {Link} from "react-router-dom";
 import './registros.css';
 import BackButton from './BackButton';
 import './Inicio_comprador.css'
