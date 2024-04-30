@@ -1,5 +1,5 @@
 // import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -20,6 +20,14 @@ function AceptarRechazarPedidos() {
 
     fetchPedido();
   }, [idPedido]);
+
+  const handleAceptar = async () => {
+    // Lógica para aceptar el pedido
+  };
+
+  const handleRechazar = async () => {
+    // Lógica para rechazar el pedido
+  };
 
   return (
     <div>
